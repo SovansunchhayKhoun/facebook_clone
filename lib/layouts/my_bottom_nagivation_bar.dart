@@ -16,11 +16,15 @@ class MyBottomNavigationBar extends StatelessWidget {
     // ColorScheme colorScheme = Theme.of(context).colorScheme;
 
     return BottomNavigationBarTheme(
-      data: BottomNavigationBarThemeData(
+      data: const BottomNavigationBarThemeData(
         type: BottomNavigationBarType.fixed,
-        // backgroundColor: colorScheme.primary,
-        // unselectedItemColor: colorScheme.inversePrimary,
-        // selectedItemColor: colorScheme.inversePrimary,
+        backgroundColor: Color(0xFF242526),
+        unselectedItemColor: Color.fromRGBO(177, 179, 184, 1),
+        selectedItemColor: Colors.blue,
+        selectedLabelStyle:
+            TextStyle(overflow: TextOverflow.visible, fontSize: 10),
+        unselectedLabelStyle:
+            TextStyle(overflow: TextOverflow.visible, fontSize: 10),
       ),
       child: BottomNavigationBar(
         onTap: navigateBottomBar,
@@ -35,29 +39,29 @@ class MyBottomNavigationBar extends StatelessWidget {
           ),
           bottomNavigationBarItem(
             context: context,
-            icon: LucideIcons.heartHandshake,
-            label: 'Forum',
+            icon: LucideIcons.monitorPlay,
+            label: 'Video',
             selectedIndex: selectedIndex,
             index: 1,
           ),
           bottomNavigationBarItem(
             context: context,
-            icon: LucideIcons.book,
-            label: 'Therapists',
+            icon: LucideIcons.store,
+            label: 'Marketplace',
             selectedIndex: selectedIndex,
             index: 2,
           ),
           bottomNavigationBarItem(
             context: context,
-            icon: LucideIcons.library,
-            label: 'Resource',
+            icon: LucideIcons.bell,
+            label: 'Notifications',
             selectedIndex: selectedIndex,
             index: 3,
           ),
           bottomNavigationBarItem(
             context: context,
-            icon: LucideIcons.user,
-            label: 'Profile',
+            icon: LucideIcons.menu,
+            label: 'Menu',
             selectedIndex: selectedIndex,
             index: 4,
           ),
@@ -74,16 +78,9 @@ BottomNavigationBarItem bottomNavigationBarItem({
   required int selectedIndex,
   required int index,
 }) {
-  final bool isSelectedIndex = selectedIndex == index;
   // ColorScheme colorScheme = Theme.of(context).colorScheme;
   return BottomNavigationBarItem(
     icon: Container(
-      decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        color: isSelectedIndex ? const Color(0xFFD2E7FF) : Colors.transparent,
-      ),
-      padding:
-          isSelectedIndex ? const EdgeInsets.all(12) : const EdgeInsets.all(0),
       child: Icon(
         icon,
         // color:
