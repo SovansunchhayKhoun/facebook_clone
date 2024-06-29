@@ -11,7 +11,7 @@ class AppRoute {
     const VideoScreen(),
     const MarketPlaceScreen(),
     const NotificationsScreen(),
-    const MenuScreen(),
+    MenuScreen(),
   ];
 
   static final appTitle = [
@@ -29,6 +29,6 @@ class AppRoute {
         const MarketPlaceScreen(),
     RouteConstant.notificationScreen.name: (context) =>
         const NotificationsScreen(),
-    RouteConstant.menuScreen.name: (context) => const MenuScreen()
+    RouteConstant.menuScreen.name: (context) => MenuScreen(),
   };
 }

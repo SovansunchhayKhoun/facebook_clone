@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project/components/layout/app_bar.dart';
-import 'package:project/layouts/my_bottom_nagivation_bar.dart';
+import 'package:project/components/layout/my_bottom_nagivation_bar.dart';
 import 'package:project/routes/app_route.dart';
 
 class LayoutScreen extends StatefulWidget {
@@ -31,7 +31,10 @@ class _LayoutScreenState extends State<LayoutScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const MyAppBar(),
-      body: AppRoute.appPages[_selectedIndex!],
+      body: IndexedStack(
+        index: _selectedIndex,
+        children: AppRoute.appPages,
+      ),
       bottomNavigationBar: MyBottomNavigationBar(
         selectedIndex: _selectedIndex!,
         navigateBottomBar: _navigateBottomBar,

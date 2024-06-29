@@ -8,7 +8,7 @@ class LightModeColor {
 
 ColorScheme lightMode = const ColorScheme.light(
   primary: BaseAppColor.primaryColor,
-  tertiary: BaseAppColor.tertiary,
+  tertiary: BaseAppColor.tertiaryColor,
   background: LightModeColor.backgroundColor,
   inversePrimary: LightModeColor.inversePrimary,
 );
