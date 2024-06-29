@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:project/screens/home_screen.dart';
+import 'package:project/constants/route_constants.dart';
+import 'package:project/screens/feeds/feeds_screen.dart';
+import 'package:project/screens/layout_page.dart';
 import 'package:project/theme/app_theme.dart';
 import 'package:project/theme/theme_provider.dart';
 import 'package:provider/provider.dart';
@@ -22,8 +24,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      title: 'Flutter Demo',
+      routes: {
+        RouteConstant.FeedsScreen.name: (context) => const FeedsScreen(),
+      },
+      // theme: appTheme,
+      home: const LayoutScreen(),
       theme: appTheme(context),
-      home: const HomeScreen(),
     );
   }
 }
