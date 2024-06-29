@@ -7,7 +7,7 @@ class FeedsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: MyBottomNavigationBar(),
+      // bottomNavigationBar: MyBottomNavigationBar(),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
