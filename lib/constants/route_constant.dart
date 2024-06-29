@@ -1,0 +1,4 @@
+enum RouteConstant {
+  feedsScreen,
+  marketplaceScreen,
+}
