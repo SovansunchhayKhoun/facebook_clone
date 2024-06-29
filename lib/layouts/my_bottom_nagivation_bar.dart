@@ -13,59 +13,63 @@ class MyBottomNavigationBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // ColorScheme colorScheme = Theme.of(context).colorScheme;
+    ColorScheme colorScheme = Theme.of(context).colorScheme;
 
     return BottomNavigationBarTheme(
-      data: const BottomNavigationBarThemeData(
+      data: BottomNavigationBarThemeData(
         type: BottomNavigationBarType.fixed,
-        backgroundColor: Color(0xFF242526),
-        unselectedItemColor: Color.fromRGBO(177, 179, 184, 1),
-        selectedItemColor: Colors.blue,
+        backgroundColor: colorScheme.secondary,
+        unselectedItemColor: colorScheme.tertiary,
+        selectedItemColor: colorScheme.primary,
         selectedLabelStyle:
-            TextStyle(overflow: TextOverflow.visible, fontSize: 10),
+            const TextStyle(overflow: TextOverflow.visible, fontSize: 10),
         unselectedLabelStyle:
-            TextStyle(overflow: TextOverflow.visible, fontSize: 10),
+            const TextStyle(overflow: TextOverflow.visible, fontSize: 10),
       ),
-      child: BottomNavigationBar(
-        onTap: navigateBottomBar,
-        currentIndex: selectedIndex,
-        items: [
-          bottomNavigationBarItem(
-            context: context,
-            icon: LucideIcons.home,
-            label: 'Home',
-            selectedIndex: selectedIndex,
-            index: 0,
-          ),
-          bottomNavigationBarItem(
-            context: context,
-            icon: LucideIcons.monitorPlay,
-            label: 'Video',
-            selectedIndex: selectedIndex,
-            index: 1,
-          ),
-          bottomNavigationBarItem(
-            context: context,
-            icon: LucideIcons.store,
-            label: 'Marketplace',
-            selectedIndex: selectedIndex,
-            index: 2,
-          ),
-          bottomNavigationBarItem(
-            context: context,
-            icon: LucideIcons.bell,
-            label: 'Notifications',
-            selectedIndex: selectedIndex,
-            index: 3,
-          ),
-          bottomNavigationBarItem(
-            context: context,
-            icon: LucideIcons.menu,
-            label: 'Menu',
-            selectedIndex: selectedIndex,
-            index: 4,
-          ),
-        ],
+      child: Container(
+        decoration: BoxDecoration(
+            border: Border(top: BorderSide(color: colorScheme.background))),
+        child: BottomNavigationBar(
+          onTap: navigateBottomBar,
+          currentIndex: selectedIndex,
+          items: [
+            bottomNavigationBarItem(
+              context: context,
+              icon: LucideIcons.home,
+              label: 'Home',
+              selectedIndex: selectedIndex,
+              index: 0,
+            ),
+            bottomNavigationBarItem(
+              context: context,
+              icon: LucideIcons.monitorPlay,
+              label: 'Video',
+              selectedIndex: selectedIndex,
+              index: 1,
+            ),
+            bottomNavigationBarItem(
+              context: context,
+              icon: LucideIcons.store,
+              label: 'Marketplace',
+              selectedIndex: selectedIndex,
+              index: 2,
+            ),
+            bottomNavigationBarItem(
+              context: context,
+              icon: LucideIcons.bell,
+              label: 'Notifications',
+              selectedIndex: selectedIndex,
+              index: 3,
+            ),
+            bottomNavigationBarItem(
+              context: context,
+              icon: LucideIcons.menu,
+              label: 'Menu',
+              selectedIndex: selectedIndex,
+              index: 4,
+            ),
+          ],
+        ),
       ),
     );
   }
