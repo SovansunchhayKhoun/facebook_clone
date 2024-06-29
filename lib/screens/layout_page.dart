@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project/components/layout/app_bar.dart';
 import 'package:project/layouts/my_bottom_nagivation_bar.dart';
 import 'package:project/routes/app_route.dart';
 
@@ -29,7 +30,7 @@ class _LayoutScreenState extends State<LayoutScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: const MyAppBar(),
       body: AppRoute.appPages[_selectedIndex!],
       bottomNavigationBar: MyBottomNavigationBar(
         selectedIndex: _selectedIndex!,
