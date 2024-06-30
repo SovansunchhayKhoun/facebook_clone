@@ -79,14 +79,14 @@ flutter:
 fonts:
     # - family: Schyler
     #   fonts:
-    #     - asset: fonts/Schyler-Regular.ttf
-    #     - asset: fonts/Schyler-Italic.ttf
-    #       style: italic
-    - family: Facebook Letter Face
-      fonts:
-        - asset: lib/assets/fonts/FACEBOLF.OTF
-        - asset: lib/assets/fonts/FACEBOLF.OTF
-          weight: 700
+    #   - asset: fonts/Schyler-Regular.ttf
+    #   - asset: fonts/Schyler-Italic.ttf
+    #     style: italic
+  - family: Facebook Letter Face
+    fonts:
+      - asset: lib/assets/fonts/FACEBOLF.OTF
+      - asset: lib/assets/fonts/FACEBOLF.OTF
+        weight: 700
   
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
