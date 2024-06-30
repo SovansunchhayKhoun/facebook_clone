@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       routes: {
-        RouteConstant.FeedsScreen.name: (context) => const FeedsScreen(),
+        RouteConstant.feedsScreen.name: (context) => const FeedsScreen(),
       },
       // theme: appTheme,
       home: const LayoutScreen(),

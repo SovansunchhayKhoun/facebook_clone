@@ -1,3 +1,3 @@
 enum RouteConstant {
-  FeedsScreen,
+  feedsScreen,
 }

@@ -29,11 +29,11 @@ class _LayoutScreenState extends State<LayoutScreen> {
     'Feeds',
   ];
 
-  void _navigateBottomBar(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
+  // void _navigateBottomBar(int index) {
+  //   setState(() {
+  //     _selectedIndex = index;
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +44,7 @@ class _LayoutScreenState extends State<LayoutScreen> {
         initialData: '',
         builder: (context, snapshot) => pages[_selectedIndex!],
       ),
-      bottomNavigationBar: MyBottomNavigationBar(),
+      bottomNavigationBar: const MyBottomNavigationBar(),
     );
   }
 }
