@@ -21,7 +21,10 @@ class MyBottomNavigationBar extends StatelessWidget {
             ),
           ),
           child: BottomNavigationBar(
-            onTap: (index) => layoutProvider.setSelectedIndex(index),
+            onTap: (index) {
+              layoutProvider.setSelectedIndex(index);
+              Navigator.of(context).maybePop();
+            },
             // onTap: navigateBottomBar,
             currentIndex: layoutProvider.getSelectedIndex,
             items: [
@@ -78,15 +81,6 @@ class MyBottomNavigationBar extends StatelessWidget {
     return BottomNavigationBarItem(
       icon: Icon(icon),
       label: label,
-      activeIcon: Column(
-        children: [
-          Container(color: Colors.blue, height: 4),
-          const SizedBox(
-            height: 8,
-          ),
-          Icon(icon),
-        ],
-      ),
     );
   }
 }
