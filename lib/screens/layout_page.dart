@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:project/layouts/my_bottom_navigation_bar.dart';
-import 'package:project/screens/feeds/feeds_screen.dart';
+import 'package:project/components/layout/app_bar.dart';
+import 'package:project/layouts/my_bottom_nagivation_bar.dart';
+import 'package:project/routes/app_route.dart';
 
 class LayoutScreen extends StatefulWidget {
   const LayoutScreen({super.key, this.selectedIndex = 0});
@@ -21,30 +21,21 @@ class _LayoutScreenState extends State<LayoutScreen> {
     _selectedIndex = widget.selectedIndex;
   }
 
-  List pages = [
-    const FeedsScreen(),
-  ];
-
-  List<String> titles = [
-    'Feeds',
-  ];
-
-  // void _navigateBottomBar(int index) {
-  //   setState(() {
-  //     _selectedIndex = index;
-  //   });
-  // }
+  void _navigateBottomBar(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      body: FutureBuilder(
-        future: rootBundle.loadString('.env'),
-        initialData: '',
-        builder: (context, snapshot) => pages[_selectedIndex!],
+      appBar: const MyAppBar(),
+      body: AppRoute.appPages[_selectedIndex!],
+      bottomNavigationBar: MyBottomNavigationBar(
+        selectedIndex: _selectedIndex!,
+        navigateBottomBar: _navigateBottomBar,
       ),
-      bottomNavigationBar: const MyBottomNavigationBar(),
     );
   }
 }

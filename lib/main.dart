@@ -2,15 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:project/constants/route_constants.dart';
 import 'package:project/screens/feeds/feeds_screen.dart';
 import 'package:project/screens/layout_page.dart';
+import 'package:project/theme/app_theme.dart';
+import 'package:project/theme/theme_provider.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider(
+        create: (_) => ThemeProvider(),
+      )
+    ],
+    child: const MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -21,6 +30,7 @@ class MyApp extends StatelessWidget {
       },
       // theme: appTheme,
       home: const LayoutScreen(),
+      theme: appTheme(context),
     );
   }
 }
