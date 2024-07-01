@@ -17,7 +17,9 @@ class _LayoutScreenState extends State<LayoutScreen> {
   Widget build(BuildContext context) {
     return Consumer<LayoutProvider>(builder: (context, layoutProvider, child) {
       return Scaffold(
-        appBar: const MyAppBar(),
+        appBar: MyAppBar(
+          title: AppRoute.appTitle[layoutProvider.getSelectedIndex],
+        ),
         body: IndexedStack(
           index: layoutProvider.getSelectedIndex,
           children: AppRoute.appPages,
