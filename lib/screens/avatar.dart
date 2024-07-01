@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 
 class Avatar extends StatelessWidget {
-  final String img;
+  final String? img;
   final double? size;
   const Avatar({
     super.key,
-    required this.img,
+    this.img,
     this.size,
   });
 
   @override
   Widget build(BuildContext context) {
+    final String placeholder =
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/991px-Placeholder_view_vector.svg.png';
     double imgSize = size ?? 50;
 
     return ClipRRect(
@@ -18,7 +20,7 @@ class Avatar extends StatelessWidget {
       child: Container(
         color: Colors.white,
         child: Image.network(
-          img,
+          img ?? placeholder,
           width: imgSize,
           height: imgSize,
           fit: BoxFit.contain,

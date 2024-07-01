@@ -43,16 +43,23 @@ class ProfileScreen extends StatelessWidget {
                 ],
               ),
             ),
-            Divider(
-              thickness: 4,
-              color: colorScheme.background,
-            ),
+            _buildSectionDivider(context),
             _buildUserButtons(context),
             Divider(
               thickness: 0.5,
               color: colorScheme.tertiary,
             ),
             _buildUserDetails(context),
+            _buildSectionDivider(context),
+            const SizedBox(
+              height: AppSize.spaceMd,
+            ),
+            _buildPostActions(context),
+            _buildSectionDivider(context),
+            Container(
+              height: 100,
+              color: colorScheme.primary,
+            )
           ],
         ),
       ),
@@ -60,8 +67,147 @@ class ProfileScreen extends StatelessWidget {
     );
   }
 
+  Widget _buildPostActions(BuildContext context) {
+    ColorScheme colorScheme = Theme.of(context).colorScheme;
+    return Flex(
+      direction: Axis.vertical,
+      children: [
+        _buildPostStatus(context),
+        const SizedBox(
+          height: AppSize.spaceLg,
+        ),
+        _buildVideoChips(context),
+        const SizedBox(
+          height: AppSize.spaceLg,
+        ),
+        ListTile(
+          title: MyTextButton(
+            onPressed: () {},
+            color: Color.fromRGBO(
+              colorScheme.primary.red,
+              colorScheme.primary.green,
+              colorScheme.primary.blue,
+              0.1,
+            ),
+            text: const Text('Manage posts'),
+          ),
+        )
+      ],
+    );
+  }
+
+  Widget _buildVideoChips(BuildContext context) {
+    ColorScheme colorScheme = Theme.of(context).colorScheme;
+    return Container(
+      decoration: BoxDecoration(
+        border: Border.symmetric(
+          horizontal: BorderSide(
+            width: 1,
+            color: colorScheme.tertiary,
+          ),
+        ),
+        color: colorScheme.primary,
+      ),
+      padding: const EdgeInsets.symmetric(
+        horizontal: AppSize.paddingMd,
+        vertical: AppSize.paddingSm,
+      ),
+      child: Flex(
+        direction: Axis.horizontal,
+        children: [
+          MyTextButton(
+            text: Text(
+              'Reel',
+              style: TextStyle(
+                color: colorScheme.inversePrimary,
+              ),
+            ),
+            color: colorScheme.secondary,
+          ),
+          const SizedBox(
+            width: AppSize.spaceLg,
+          ),
+          MyTextButton(
+            text: Text(
+              'Live',
+              style: TextStyle(
+                color: colorScheme.inversePrimary,
+              ),
+            ),
+            color: colorScheme.secondary,
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildPostStatus(BuildContext context) {
+    ColorScheme colorScheme = Theme.of(context).colorScheme;
+    TextTheme textTheme = Theme.of(context).textTheme;
+    const String fbImgIcon = 'lib/assets/icons/fb-image-icon.png';
+    return Container(
+      padding: const EdgeInsets.symmetric(
+        horizontal: AppSize.paddingMd,
+        vertical: AppSize.paddingSm,
+      ),
+      child: Flex(
+        direction: Axis.vertical,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Flex(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            direction: Axis.horizontal,
+            children: [
+              Text(
+                'Posts',
+                style: textTheme.bodyMedium!.copyWith(
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Text(
+                'Filters',
+                style: textTheme.bodyMedium!.copyWith(
+                  color: colorScheme.primary,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(
+            height: AppSize.spaceLg,
+          ),
+          Flex(
+            direction: Axis.horizontal,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const Flex(
+                direction: Axis.horizontal,
+                children: [
+                  Avatar(),
+                  SizedBox(
+                    width: AppSize.spaceMd,
+                  ),
+                  Text('What\'s on your mind?'),
+                ],
+              ),
+              Image.asset(fbImgIcon),
+            ],
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget _buildSectionDivider(BuildContext context) {
+    ColorScheme colorScheme = Theme.of(context).colorScheme;
+    return Divider(
+      thickness: 4,
+      color: colorScheme.background,
+    );
+  }
+
   Widget _buildUserDetails(BuildContext context) {
     TextTheme textTheme = Theme.of(context).textTheme;
+    ColorScheme colorScheme = Theme.of(context).colorScheme;
     return Flex(
       crossAxisAlignment: CrossAxisAlignment.start,
       direction: Axis.vertical,
@@ -111,14 +257,31 @@ class ProfileScreen extends StatelessWidget {
               ),
               Text(
                 'See your About info',
-                style: textTheme.bodyMedium,
+                style: textTheme.bodyMedium!,
               )
             ],
           ),
         ),
-        MaterialButton(
-          child: const Text('Btn'),
-          onPressed: () {},
+        ListTile(
+          title: MyTextButton(
+            onPressed: () {},
+            borderRadius: AppSize.roundedSm,
+            text: const Text('Edit public details'),
+            color: Color.fromRGBO(
+              colorScheme.primary.red,
+              colorScheme.primary.green,
+              colorScheme.primary.blue,
+              0.1,
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: AppSize.paddingMd),
+          child: Divider(
+            color: colorScheme.tertiary,
+            thickness: 0.5,
+            height: 0,
+          ),
         ),
       ],
     );
@@ -126,6 +289,12 @@ class ProfileScreen extends StatelessWidget {
 
   Widget _buildUserButtons(BuildContext context) {
     ColorScheme colorScheme = Theme.of(context).colorScheme;
+    Color textBtnColor = Color.fromRGBO(
+      colorScheme.primary.red,
+      colorScheme.primary.green,
+      colorScheme.primary.blue,
+      0.1,
+    );
     return Container(
       padding: const EdgeInsets.symmetric(
         horizontal: AppSize.paddingMd,
@@ -133,25 +302,25 @@ class ProfileScreen extends StatelessWidget {
       child: Row(
         children: [
           MyTextButton(
-            color: colorScheme.primary,
+            color: textBtnColor,
             onPressed: () {},
-            text: 'Posts',
+            text: const Text('Posts'),
           ),
           const SizedBox(
             width: AppSize.spaceMd,
           ),
           MyTextButton(
-            color: colorScheme.primary,
+            color: textBtnColor,
             onPressed: () {},
-            text: 'Photos',
+            text: const Text('Photos'),
           ),
           const SizedBox(
             width: AppSize.spaceMd,
           ),
           MyTextButton(
-            color: colorScheme.primary,
+            color: textBtnColor,
             onPressed: () {},
-            text: 'Reels',
+            text: const Text('Reels'),
           ),
         ],
       ),

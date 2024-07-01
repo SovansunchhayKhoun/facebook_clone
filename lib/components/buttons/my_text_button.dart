@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
 class MyTextButton extends StatelessWidget {
-  final String text;
+  final Text text;
   final Color color;
+  final double? borderRadius;
   final void Function()? onPressed;
 
   const MyTextButton({
@@ -10,6 +11,7 @@ class MyTextButton extends StatelessWidget {
     required this.text,
     required this.color,
     this.onPressed,
+    this.borderRadius,
   });
 
   @override
@@ -17,16 +19,12 @@ class MyTextButton extends StatelessWidget {
     return TextButton(
       onPressed: onPressed,
       style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all<Color>(
-          Color.fromRGBO(
-            color.red,
-            color.green,
-            color.blue,
-            0.1,
-          ),
-        ),
+        backgroundColor: MaterialStateProperty.all<Color>(color),
+        shape: MaterialStateProperty.all<OutlinedBorder>(RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(borderRadius ?? 10000),
+        )),
       ),
-      child: Text(text),
+      child: text,
     );
   }
 }
