@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 
 class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const MyAppBar({
-    super.key,
-  });
+  final String title;
+
+  const MyAppBar({super.key, this.title = 'facebook'});
 
   final double appBarHeight = 60;
   @override
@@ -13,7 +13,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
     ColorScheme colorScheme = Theme.of(context).colorScheme;
     return AppBar(
       title: Text(
-        'facebook',
+        title,
         style: textTheme.headlineLarge,
       ),
       actions: [

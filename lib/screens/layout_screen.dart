@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:project/components/layout/my_app_bar.dart';
-import 'package:project/components/layout/my_bottom_nagivation_bar.dart';
+import 'package:project/layouts/app_bar.dart';
+import 'package:project/layouts/my_bottom_nagivation_bar.dart';
 import 'package:project/providers/layout_provider.dart';
 import 'package:project/routes/app_route.dart';
 import 'package:provider/provider.dart';
@@ -17,7 +17,9 @@ class _LayoutScreenState extends State<LayoutScreen> {
   Widget build(BuildContext context) {
     return Consumer<LayoutProvider>(builder: (context, layoutProvider, child) {
       return Scaffold(
-        appBar: const MyAppBar(),
+        appBar: MyAppBar(
+          title: AppRoute.appTitle[layoutProvider.getSelectedIndex],
+        ),
         body: IndexedStack(
           index: layoutProvider.getSelectedIndex,
           children: AppRoute.appPages,

@@ -15,11 +15,11 @@ class AppRoute {
   ];
 
   static final appTitle = [
-    'feedsScreen',
-    'videoScreen',
-    'marketplaceScreen',
-    'notificationScreen',
-    'menuScreen',
+    'facebook',
+    'Videos',
+    'Marketplace',
+    'Notifications',
+    'Menu',
   ];
 
   static final routes = {
