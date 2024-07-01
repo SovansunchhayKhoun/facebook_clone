@@ -29,6 +29,6 @@ class AppRoute {
         const MarketPlaceScreen(),
     RouteConstant.notificationScreen.name: (context) =>
         const NotificationsScreen(),
-    RouteConstant.menuScreen.name: (context) => const MenuScreen()
+    RouteConstant.menuScreen.name: (context) => const MenuScreen(),
   };
 }

@@ -5,6 +5,10 @@ TextTheme textTheme = const TextTheme(
     fontSize: 28,
     fontWeight: FontWeight.bold,
   ),
+  headlineMedium: TextStyle(
+    fontSize: 24,
+    fontWeight: FontWeight.bold,
+  ),
   bodySmall: TextStyle(
     fontSize: 16,
   ),
