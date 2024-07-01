@@ -4,4 +4,6 @@ enum RouteConstant {
   marketplaceScreen,
   notificationScreen,
   menuScreen,
+  profileScreen,
+  settingScreen,
 }
