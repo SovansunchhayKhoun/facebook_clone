@@ -10,7 +10,7 @@ class HomeScreen extends StatelessWidget {
     return const Scaffold(
       appBar: MyAppBar(),
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(AppSize.md),
+        padding: EdgeInsets.all(AppSize.paddingMd),
         child: Text('Home'),
       ),
     );

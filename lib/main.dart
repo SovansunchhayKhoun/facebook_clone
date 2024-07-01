@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:project/constants/route_constants.dart';
-import 'package:project/screens/feeds/feeds_screen.dart';
-import 'package:project/screens/layout_page.dart';
+import 'package:project/providers/layout_provider.dart';
+import 'package:project/routes/app_route.dart';
+import 'package:project/screens/layout_screen.dart';
 import 'package:project/theme/app_theme.dart';
 import 'package:project/theme/theme_provider.dart';
 import 'package:provider/provider.dart';
@@ -11,7 +11,10 @@ void main() {
     providers: [
       ChangeNotifierProvider(
         create: (_) => ThemeProvider(),
-      )
+      ),
+      ChangeNotifierProvider(
+        create: (_) => LayoutProvider(),
+      ),
     ],
     child: const MyApp(),
   ));
@@ -25,9 +28,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      routes: {
-        RouteConstant.FeedsScreen.name: (context) => const FeedsScreen(),
-      },
+      routes: AppRoute.routes,
       // theme: appTheme,
       home: const LayoutScreen(),
       theme: appTheme(context),
