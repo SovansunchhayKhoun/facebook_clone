@@ -3,7 +3,7 @@ import 'package:lucide_icons/lucide_icons.dart';
 import 'package:project/components/app_bars/profile_app_bar.dart';
 import 'package:project/components/buttons/my_text_button.dart';
 import 'package:project/components/buttons/profile_button.dart';
-import 'package:project/components/layout/my_bottom_nagivation_bar.dart';
+import 'package:project/layouts/my_bottom_nagivation_bar.dart';
 import 'package:project/screens/avatar.dart';
 import 'package:project/theme/app_size.dart';
 import 'package:project/theme/text_theme.dart';

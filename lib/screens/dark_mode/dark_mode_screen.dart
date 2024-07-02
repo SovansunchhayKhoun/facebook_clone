@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:project/components/layout/my_app_bar.dart';
-import 'package:project/components/layout/my_bottom_nagivation_bar.dart';
+import 'package:project/layouts/app_bar.dart';
+import 'package:project/layouts/my_bottom_nagivation_bar.dart';
 
 class DarkModeScreen extends StatelessWidget {
   const DarkModeScreen({super.key});
