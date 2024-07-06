@@ -32,7 +32,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
         preferredSize: Size.fromHeight(appBarHeight),
         child: Container(
           height: 0.5,
-          color: colorScheme.tertiary,
+          color: colorScheme.surface,
         ),
       ),
     );

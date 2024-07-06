@@ -10,4 +10,6 @@ class AppSize {
   static const double spaceSm = 4;
   static const double spaceMd = 8;
   static const double spaceLg = 12;
+
+  static const double circle = 9999;
 }
