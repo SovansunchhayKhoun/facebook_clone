@@ -13,6 +13,6 @@ ThemeData appTheme(BuildContext context) {
         Provider.of<ThemeProvider>(context).themeData.background,
     colorScheme: Provider.of<ThemeProvider>(context).themeData,
     textTheme: textTheme,
-    bottomNavigationBarTheme: bottomNavigationBarThemeData,
+    bottomNavigationBarTheme: bottomNavigationBarThemeData(context),
   );
 }

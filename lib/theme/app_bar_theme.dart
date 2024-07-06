@@ -4,6 +4,6 @@ import 'package:provider/provider.dart';
 
 AppBarTheme appBarTheme(BuildContext context) {
   return AppBarTheme(
-    backgroundColor: Provider.of<ThemeProvider>(context).themeData.background,
+    backgroundColor: Provider.of<ThemeProvider>(context).themeData.onBackground,
   );
 }

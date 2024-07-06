@@ -1,17 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:project/theme/app_size.dart';
 
 class MyTextButton extends StatelessWidget {
   final Text text;
+  final Icon? icon;
   final Color color;
   final double? borderRadius;
   final void Function()? onPressed;
+  final BorderSide? borderSide;
+  // final double? borderWidth;
+  // final Color? borderColor;
 
   const MyTextButton({
     super.key,
     required this.text,
     required this.color,
+    this.icon,
     this.onPressed,
     this.borderRadius,
+    this.borderSide,
+    // this.borderColor,
+    // this.borderWidth,
   });
 
   @override
@@ -21,10 +30,27 @@ class MyTextButton extends StatelessWidget {
       style: ButtonStyle(
         backgroundColor: MaterialStateProperty.all<Color>(color),
         shape: MaterialStateProperty.all<OutlinedBorder>(RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(borderRadius ?? 10000),
+          side: borderSide ??
+              const BorderSide(
+                width: 0,
+                color: Colors.transparent,
+                strokeAlign: 0,
+              ),
+          borderRadius: BorderRadius.circular(
+            borderRadius ?? AppSize.circle,
+          ),
         )),
       ),
-      child: text,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          icon ?? Container(),
+          SizedBox(
+            width: icon != null ? AppSize.spaceSm : 0,
+          ),
+          text,
+        ],
+      ),
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import 'package:project/components/app_bars/profile_app_bar.dart';
 import 'package:project/components/buttons/my_text_button.dart';
@@ -18,7 +19,7 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     ColorScheme colorScheme = Theme.of(context).colorScheme;
     return Scaffold(
-      backgroundColor: colorScheme.secondary,
+      backgroundColor: colorScheme.onBackground,
       appBar: const ProfileAppBar(
         title: 'Sunchhay Khoun',
       ),
@@ -47,7 +48,7 @@ class ProfileScreen extends StatelessWidget {
             _buildUserButtons(context),
             Divider(
               thickness: 0.5,
-              color: colorScheme.tertiary,
+              color: colorScheme.surface,
             ),
             _buildUserDetails(context),
             _buildSectionDivider(context),
@@ -103,10 +104,10 @@ class ProfileScreen extends StatelessWidget {
         border: Border.symmetric(
           horizontal: BorderSide(
             width: 1,
-            color: colorScheme.tertiary,
+            color: colorScheme.surface,
           ),
         ),
-        color: colorScheme.primary,
+        color: colorScheme.surface,
       ),
       padding: const EdgeInsets.symmetric(
         horizontal: AppSize.paddingMd,
@@ -116,25 +117,41 @@ class ProfileScreen extends StatelessWidget {
         direction: Axis.horizontal,
         children: [
           MyTextButton(
+            icon: const Icon(
+              LucideIcons.youtube,
+              color: Colors.red,
+            ),
+            borderSide: BorderSide(
+              color: colorScheme.background,
+              width: 1,
+            ),
             text: Text(
               'Reel',
               style: TextStyle(
                 color: colorScheme.inversePrimary,
               ),
             ),
-            color: colorScheme.secondary,
+            color: colorScheme.onBackground,
           ),
           const SizedBox(
             width: AppSize.spaceLg,
           ),
           MyTextButton(
+            borderSide: BorderSide(
+              color: colorScheme.background,
+              width: 1,
+            ),
+            icon: const Icon(
+              LucideIcons.video,
+              color: Colors.red,
+            ),
             text: Text(
               'Live',
               style: TextStyle(
                 color: colorScheme.inversePrimary,
               ),
             ),
-            color: colorScheme.secondary,
+            color: colorScheme.onBackground,
           ),
         ],
       ),
@@ -168,6 +185,8 @@ class ProfileScreen extends StatelessWidget {
                 'Filters',
                 style: textTheme.bodyMedium!.copyWith(
                   color: colorScheme.primary,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w300,
                 ),
               ),
             ],
@@ -201,7 +220,7 @@ class ProfileScreen extends StatelessWidget {
     ColorScheme colorScheme = Theme.of(context).colorScheme;
     return Divider(
       thickness: 4,
-      color: colorScheme.background,
+      color: colorScheme.surface,
     );
   }
 
@@ -278,7 +297,7 @@ class ProfileScreen extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: AppSize.paddingMd),
           child: Divider(
-            color: colorScheme.tertiary,
+            color: colorScheme.surface,
             thickness: 0.5,
             height: 0,
           ),
@@ -335,12 +354,13 @@ class ProfileScreen extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         children: [
           ProfileButton(
-            icon: Icon(
+            icon: const Icon(
               LucideIcons.plus,
-              color: colorScheme.inversePrimary,
+              color: Colors.white,
             ),
             text: "Add to story",
             backgroundColor: colorScheme.primary,
+            textColor: Colors.white,
           ),
           const SizedBox(
             width: AppSize.spaceMd,
@@ -351,17 +371,19 @@ class ProfileScreen extends StatelessWidget {
               color: colorScheme.inversePrimary,
             ),
             text: "Edit Profile",
-            backgroundColor: colorScheme.secondary,
+            backgroundColor: colorScheme.surface,
+            textColor: colorScheme.inversePrimary,
           ),
           const SizedBox(
             width: AppSize.spaceMd,
           ),
           ProfileButton(
-            backgroundColor: colorScheme.secondary,
+            backgroundColor: colorScheme.surface,
             icon: Icon(
               Icons.more_horiz,
               color: colorScheme.inversePrimary,
             ),
+            textColor: colorScheme.inversePrimary,
           )
         ],
       ),
@@ -369,6 +391,7 @@ class ProfileScreen extends StatelessWidget {
   }
 
   Widget _buildUserName(BuildContext context) {
+    ColorScheme colorScheme = Theme.of(context).colorScheme;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -377,8 +400,11 @@ class ProfileScreen extends StatelessWidget {
           style: textTheme.headlineMedium,
         ),
         RichText(
-          text: const TextSpan(
-            children: [
+          text: TextSpan(
+            style: TextStyle(
+              color: colorScheme.inversePrimary,
+            ),
+            children: const [
               TextSpan(
                 text: '470',
                 style: TextStyle(
@@ -417,7 +443,7 @@ class ProfileScreen extends StatelessWidget {
               Container(
                 decoration: BoxDecoration(
                   border: Border.all(
-                    color: colorScheme.background,
+                    color: colorScheme.onBackground,
                     width: 4,
                   ),
                   borderRadius: BorderRadius.circular(100),
@@ -443,8 +469,12 @@ class ProfileScreen extends StatelessWidget {
     ColorScheme colorScheme = Theme.of(context).colorScheme;
     return Container(
       decoration: BoxDecoration(
-        color: colorScheme.secondary,
-        borderRadius: BorderRadius.circular(50),
+        color: colorScheme.surface,
+        borderRadius: BorderRadius.circular(AppSize.circle),
+        border: Border.all(
+          color: colorScheme.onBackground,
+          width: 2,
+        ),
       ),
       child: IconButton(
         icon: const Icon(
