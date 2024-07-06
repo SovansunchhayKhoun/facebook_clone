@@ -4,7 +4,7 @@ import 'package:project/screens/marketplace/item_detail_screen.dart';
 class ItemTile extends StatelessWidget {
   final int index;
 
-  const ItemTile(this.index);
+  const ItemTile(this.index, {super.key});
 
   @override
   Widget build(BuildContext context) {

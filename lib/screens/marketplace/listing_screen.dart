@@ -47,7 +47,7 @@ class ListingScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              Row(
+              const Row(
                 children: [Text('data'), Text('data')],
               )
             ],
