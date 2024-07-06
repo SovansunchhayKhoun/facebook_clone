@@ -10,6 +10,8 @@ ColorScheme darkMode = const ColorScheme.dark(
   primary: BaseAppColor.primaryColor,
   secondary: BaseAppColor.secondaryColor,
   tertiary: BaseAppColor.tertiaryColor,
+  surface: BaseAppColor.lightGrey,
+  tertiaryContainer: BaseAppColor.darkInputBackground,
   background: DarkModeColor.backgroundColor,
   inversePrimary: DarkModeColor.inversePrimary,
 );

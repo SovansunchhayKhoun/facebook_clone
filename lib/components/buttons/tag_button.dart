@@ -23,7 +23,7 @@ class TagButton extends StatelessWidget {
         child: Text(
           title,
           style: const TextStyle(
-              color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16),
+               fontWeight: FontWeight.bold, fontSize: 16),
         ),
       ),
     );
