@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 
-Widget buildInputSection(String ownProfile) {
+Widget buildInputSection(String ownProfile, ColorScheme colorScheme) {
   return ListTile(
     leading: CircleAvatar(
       backgroundImage: NetworkImage(ownProfile),
     ),
     title: TextField(
       decoration: InputDecoration(
+        filled: true,
+        fillColor: colorScheme.onBackground,
         hintText: "What's on your mind?",
-        border: OutlineInputBorder( // Use OutlineInputBorder for border
-          borderRadius: BorderRadius.circular(50.0), // Set border radius
-          borderSide: const BorderSide( // Customize border style
-            color: Colors.grey,
-          ),
+        border: const OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(50.0)),
         ),
       ),
     ),

@@ -8,18 +8,18 @@ class FeedsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     String ownProfile =
         'https://i.pinimg.com/736x/64/81/22/6481225432795d8cdf48f0f85800cf66.jpg';
-        
+
     ColorScheme colorScheme = Theme.of(context).colorScheme;
-    
+
     return Scaffold(
+      backgroundColor: colorScheme.onBackground,
         body: SingleChildScrollView(
       child: Column(
         children: [
-          buildInputSection(ownProfile),
-          buildStorySection(),
+          buildInputSection(ownProfile, colorScheme),
+          buildStorySection(colorScheme),
           buildPostFeeds(colorScheme, ownProfile),
           buildPostFeeds(colorScheme, ownProfile)
         ],

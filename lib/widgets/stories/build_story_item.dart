@@ -71,24 +71,23 @@ Widget buildStoryItem(String name, String storyImageUrl, bool isAddStory,
               ),
             ),
           ),
-          
-        if(isAddStory)
+
+        if (isAddStory)
           const Positioned(
-            left: 8,
-            right: 8,
-            bottom: 8,
-            child: Center(
-              child: Text(
-              "Create story",
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 14,
-                fontWeight: FontWeight.bold,
-              ),
-              overflow: TextOverflow.ellipsis,
-            ),
-            )
-          ),
+              left: 8,
+              right: 8,
+              bottom: 8,
+              child: Center(
+                child: Text(
+                  "Create story",
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  overflow: TextOverflow.ellipsis,
+                ),
+              )),
       ],
     ),
   );
