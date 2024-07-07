@@ -4,7 +4,7 @@ import 'package:project/theme/app_size.dart';
 class MyTextButton extends StatelessWidget {
   final Text text;
   final Icon? icon;
-  final Color color;
+  final Color backgroundColor;
   final double? borderRadius;
   final void Function()? onPressed;
   final BorderSide? borderSide;
@@ -14,7 +14,7 @@ class MyTextButton extends StatelessWidget {
   const MyTextButton({
     super.key,
     required this.text,
-    required this.color,
+    required this.backgroundColor,
     this.icon,
     this.onPressed,
     this.borderRadius,
@@ -28,7 +28,7 @@ class MyTextButton extends StatelessWidget {
     return TextButton(
       onPressed: onPressed,
       style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all<Color>(color),
+        backgroundColor: MaterialStateProperty.all<Color>(backgroundColor),
         shape: MaterialStateProperty.all<OutlinedBorder>(RoundedRectangleBorder(
           side: borderSide ??
               const BorderSide(
