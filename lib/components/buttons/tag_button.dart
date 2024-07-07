@@ -13,17 +13,17 @@ class TagButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ColorScheme colorScheme = Theme.of(context).colorScheme;
     return TextButton(
       style: TextButton.styleFrom(
-        backgroundColor: const Color.fromRGBO(94, 94, 94, 0.741),
+        backgroundColor: colorScheme.surface,
       ),
       onPressed: onButtonPressed,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 4),
         child: Text(
           title,
-          style: const TextStyle(
-              color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16),
+          style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
         ),
       ),
     );
