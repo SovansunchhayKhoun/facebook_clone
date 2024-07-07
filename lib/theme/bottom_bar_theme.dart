@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:project/theme/base_app_color.dart';
+import 'package:project/theme/theme_provider.dart';
+import 'package:provider/provider.dart';
 
-BottomNavigationBarThemeData bottomNavigationBarThemeData =
-    const BottomNavigationBarThemeData(
-  type: BottomNavigationBarType.fixed,
-  backgroundColor: BaseAppColor.secondaryColor,
-  unselectedItemColor: BaseAppColor.tertiaryColor,
-  selectedItemColor: BaseAppColor.primaryColor,
-  selectedLabelStyle: TextStyle(overflow: TextOverflow.visible, fontSize: 10),
-  unselectedLabelStyle: TextStyle(overflow: TextOverflow.visible, fontSize: 10),
-);
+BottomNavigationBarThemeData bottomNavigationBarThemeData(
+    BuildContext context) {
+  return BottomNavigationBarThemeData(
+    type: BottomNavigationBarType.fixed,
+    backgroundColor: Provider.of<ThemeProvider>(context).themeData.onBackground,
+    unselectedItemColor:
+        Provider.of<ThemeProvider>(context).themeData.inversePrimary,
+    selectedItemColor: Provider.of<ThemeProvider>(context).themeData.primary,
+    selectedLabelStyle:
+        const TextStyle(overflow: TextOverflow.visible, fontSize: 10),
+    unselectedLabelStyle:
+        const TextStyle(overflow: TextOverflow.visible, fontSize: 10),
+  );
+}

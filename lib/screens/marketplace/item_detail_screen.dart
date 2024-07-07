@@ -19,6 +19,7 @@ class ItemDetailScreen extends StatelessWidget {
     ColorScheme colorScheme = Theme.of(context).colorScheme;
 
     return Scaffold(
+      backgroundColor: colorScheme.onBackground,
       appBar: const ProfileAppBar(),
       body: SingleChildScrollView(
         child: Column(
@@ -39,31 +40,44 @@ class ItemDetailScreen extends StatelessWidget {
                   Text(
                     'Trade Streetwear Phnom Penh',
                     style: textTheme.bodySmall!.copyWith(
-                      color: colorScheme.tertiary,
+                      color: colorScheme.inversePrimary,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   const SizedBox(height: 18),
                   const SendMessageInput(),
                   const SizedBox(height: 18),
-                  const Row(
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       CustomIconButton(
-                          icon: LucideIcons.coins, text: 'Send offer'),
+                        icon: LucideIcons.coins,
+                        text: 'Send offer',
+                        onPressed: () {},
+                      ),
                       CustomIconButton(
-                          icon: LucideIcons.messageSquare, text: 'View post'),
+                        icon: LucideIcons.messageSquare,
+                        text: 'View post',
+                        onPressed: () {},
+                      ),
                       CustomIconButton(
-                          icon: Icons.share_rounded, text: 'Share'),
-                      CustomIconButton(icon: LucideIcons.heart, text: 'Save'),
+                        icon: Icons.share_rounded,
+                        text: 'Share',
+                        onPressed: () {},
+                      ),
+                      CustomIconButton(
+                        icon: LucideIcons.heart,
+                        text: 'Save',
+                        onPressed: () {},
+                      )
                     ],
                   ),
                   const SizedBox(height: 14),
-                  Divider(color: colorScheme.tertiary, thickness: 0.5),
+                  Divider(color: colorScheme.surface, thickness: 0.5),
                   _description(context),
-                  Divider(color: colorScheme.tertiary, thickness: 0.5),
+                  Divider(color: colorScheme.surface, thickness: 0.5),
                   _sellerInformation(context),
-                  Divider(color: colorScheme.tertiary, thickness: 0.5),
+                  Divider(color: colorScheme.surface, thickness: 0.5),
                 ],
               ),
             ),
@@ -122,7 +136,7 @@ Widget _sellerInformation(BuildContext context) {
         children: [
           Row(
             children: [
-              Avatar(img: coverImg),
+              const Avatar(img: coverImg),
               const SizedBox(width: 12),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

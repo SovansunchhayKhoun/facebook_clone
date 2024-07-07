@@ -32,6 +32,7 @@ class ListingScreen extends StatelessWidget {
     ColorScheme colorScheme = Theme.of(context).colorScheme;
 
     return Scaffold(
+        backgroundColor: colorScheme.onBackground,
         appBar: const MyAppBar(
           title: 'Selling',
         ),
@@ -81,7 +82,7 @@ class ListingScreen extends StatelessWidget {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => CreateListingScreen()));
+                                  builder: (context) => const CreateListingScreen()));
                         },
                         icon: const Icon(
                           LucideIcons.edit,

@@ -33,7 +33,7 @@ class SendMessageInput extends StatelessWidget {
                 style: const TextStyle(fontSize: 14),
                 decoration: InputDecoration(
                     filled: true,
-                    fillColor: colorScheme.tertiaryContainer,
+                    fillColor: colorScheme.onBackground,
                     contentPadding: const EdgeInsets.symmetric(horizontal: 18),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(24), // Border radius

@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 class CustomIconButton extends StatelessWidget {
   final String text;
   final IconData icon;
+  final void Function()? onPressed;
 
-  const CustomIconButton({super.key, required this.icon, this.text = ''});
+  const CustomIconButton(
+      {super.key, required this.icon, this.text = '', required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -15,16 +17,16 @@ class CustomIconButton extends StatelessWidget {
         width: 50,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          color: colorScheme.tertiaryContainer,
+          color: colorScheme.surface,
         ),
         child: Center(
           child: TextButton(
+            onPressed: onPressed,
             child: Icon(
               icon,
               size: 25,
-              color: colorScheme.tertiary,
+              color: colorScheme.inversePrimary,
             ),
-            onPressed: () {},
           ),
         ),
       ),

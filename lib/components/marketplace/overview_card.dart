@@ -19,7 +19,7 @@ class OverviewCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.only(left: 12, right: 12),
       decoration: BoxDecoration(
-          border: Border.all(color: colorScheme.tertiary),
+          border: Border.all(color: colorScheme.surface),
           borderRadius: BorderRadius.circular(12)),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -41,9 +41,10 @@ class OverviewCard extends StatelessWidget {
           Expanded(
             child: Text(
               description,
-              style: const TextStyle(
+              style: TextStyle(
                   fontSize: 13,
                   fontWeight: FontWeight.bold,
+                  color: colorScheme.inversePrimary,
                   overflow: TextOverflow.visible),
             ),
           ),
@@ -53,7 +54,7 @@ class OverviewCard extends StatelessWidget {
               style: TextStyle(
                   fontSize: 13,
                   overflow: TextOverflow.ellipsis,
-                  color: colorScheme.tertiary),
+                  color: colorScheme.inversePrimary),
             ),
           ),
         ],

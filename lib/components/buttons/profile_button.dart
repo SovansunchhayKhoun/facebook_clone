@@ -5,17 +5,19 @@ class ProfileButton extends StatelessWidget {
   final String? text;
   final Color backgroundColor;
   final Icon icon;
+  final Color? textColor;
   const ProfileButton({
     super.key,
     this.text,
     required this.backgroundColor,
     required this.icon,
+    required this.textColor,
   });
 
   @override
   Widget build(BuildContext context) {
     TextTheme textTheme = Theme.of(context).textTheme;
-    ColorScheme colorScheme = Theme.of(context).colorScheme;
+    // ColorScheme colorScheme = Theme.of(context).colorScheme;
 
     return ElevatedButton(
       onPressed: () {},
@@ -42,7 +44,7 @@ class ProfileButton extends StatelessWidget {
           Text(
             text ?? '',
             style: textTheme.bodySmall!.copyWith(
-              color: colorScheme.inversePrimary,
+              color: textColor,
               fontWeight: FontWeight.w500,
             ),
           ),
