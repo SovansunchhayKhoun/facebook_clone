@@ -79,70 +79,72 @@ class _CreateListingScreenState extends State<CreateListingScreen> {
       appBar: const ActionAppBar(
         title: 'Listing Detail',
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              alignment: Alignment.center,
-              height: 175,
-              child: _image == null
-                  ? GestureDetector(
-                      onTap: () => _pickImage(ImageSource.gallery),
-                      child: Container(
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                            color: colorScheme.surface,
-                            borderRadius: BorderRadius.circular(12)),
-                        child: const Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(LucideIcons.image),
-                            Text('Add photo'),
-                          ],
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                alignment: Alignment.center,
+                height: 175,
+                child: _image == null
+                    ? GestureDetector(
+                        onTap: () => _pickImage(ImageSource.gallery),
+                        child: Container(
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                              color: colorScheme.surface,
+                              borderRadius: BorderRadius.circular(12)),
+                          child: const Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(LucideIcons.image),
+                              Text('Add photo'),
+                            ],
+                          ),
                         ),
-                      ),
-                    )
-                  : Image.file(File(_image!.path)),
-            ),
-            const SizedBox(height: 4),
-            Text('Photos: 0/10',
-                style:
-                    TextStyle(color: colorScheme.inversePrimary, fontSize: 14)),
-            const SizedBox(height: 16),
-            CustomTextInput(hintText: 'Title', controller: _titleController),
-            CustomTextInput(hintText: 'Price', controller: _priceController),
-            CustomDropDownButton(
-                options: _categoryOptions,
-                selectedCategory: selectedCategory,
-                onChanged: (String? value) {
-                  selectedCategory = value;
-                }),
-            const SizedBox(height: 16),
-            Text('Condition',
-                style:
-                    textTheme.bodySmall!.copyWith(fontWeight: FontWeight.w500)),
-            Container(
-              alignment: Alignment.center,
-              margin: const EdgeInsets.only(top: 12),
-              height: 40,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                physics: const BouncingScrollPhysics(),
-                itemCount: myItems.length,
-                itemBuilder: (context, index) => Padding(
-                  padding: const EdgeInsets.only(right: 12),
-                  child: TagButton(
-                    onButtonPressed: () {},
-                    title: myItems[index].title,
-                    borderRadius: 8,
-                    color: colorScheme.inversePrimary,
+                      )
+                    : Image.file(File(_image!.path)),
+              ),
+              const SizedBox(height: 4),
+              Text('Photos: 0/10',
+                  style: TextStyle(
+                      color: colorScheme.inversePrimary, fontSize: 14)),
+              const SizedBox(height: 16),
+              CustomTextInput(hintText: 'Title', controller: _titleController),
+              CustomTextInput(hintText: 'Price', controller: _priceController),
+              CustomDropDownButton(
+                  options: _categoryOptions,
+                  selectedCategory: selectedCategory,
+                  onChanged: (String? value) {
+                    selectedCategory = value;
+                  }),
+              const SizedBox(height: 16),
+              Text('Condition',
+                  style: textTheme.bodySmall!
+                      .copyWith(fontWeight: FontWeight.w500)),
+              Container(
+                alignment: Alignment.center,
+                margin: const EdgeInsets.only(top: 12),
+                height: 40,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  physics: const BouncingScrollPhysics(),
+                  itemCount: myItems.length,
+                  itemBuilder: (context, index) => Padding(
+                    padding: const EdgeInsets.only(right: 12),
+                    child: TagButton(
+                      onButtonPressed: () {},
+                      title: myItems[index].title,
+                      borderRadius: 8,
+                      color: colorScheme.inversePrimary,
+                    ),
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
