@@ -36,139 +36,143 @@ class ListingScreen extends StatelessWidget {
         appBar: const MyAppBar(
           title: 'Selling',
         ),
-        body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 12),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                alignment: Alignment.center,
-                margin: const EdgeInsets.only(top: 12),
-                height: 40,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  physics: const BouncingScrollPhysics(),
-                  itemCount: myItems.length,
-                  itemBuilder: (context, index) => Padding(
-                    padding: const EdgeInsets.only(right: 12),
-                    child: TagButton(
-                      onButtonPressed: () {},
-                      title: myItems[index].title,
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 12),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  alignment: Alignment.center,
+                  margin: const EdgeInsets.only(top: 12),
+                  height: 40,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    physics: const BouncingScrollPhysics(),
+                    itemCount: myItems.length,
+                    itemBuilder: (context, index) => Padding(
+                      padding: const EdgeInsets.only(right: 12),
+                      child: TagButton(
+                        onButtonPressed: () {},
+                        title: myItems[index].title,
+                        color: colorScheme.primary,
+                      ),
                     ),
                   ),
                 ),
-              ),
-              const SizedBox(height: 18),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Avatar(
-                    img: profileImg,
-                    size: 50,
-                  ),
-                  const SizedBox(
-                    width: 12,
-                  ),
-                  Expanded(
-                      child: SizedBox(
-                    height: 45,
-                    child: ElevatedButton.icon(
-                        style: ElevatedButton.styleFrom(
-                            backgroundColor: colorScheme.primary,
-                            shape: const RoundedRectangleBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(6)))),
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const CreateListingScreen()));
-                        },
-                        icon: const Icon(
-                          LucideIcons.edit,
-                          color: Colors.white,
-                          size: 24,
-                        ),
-                        label: const Text(
-                          'Create Listing',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18),
-                        )),
-                  ))
-                ],
-              ),
-              const SizedBox(height: 18),
-              const Text(
-                'Overview',
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-              ),
-              GridView(
-                padding: const EdgeInsets.only(bottom: 18, top: 8),
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    childAspectRatio: 2,
-                    crossAxisSpacing: 8,
-                    mainAxisSpacing: 8),
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                children: const [
-                  OverviewCard(
+                const SizedBox(height: 18),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Avatar(
+                      img: profileImg,
+                      size: 50,
+                    ),
+                    const SizedBox(
+                      width: 12,
+                    ),
+                    Expanded(
+                        child: SizedBox(
+                      height: 45,
+                      child: ElevatedButton.icon(
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: colorScheme.primary,
+                              shape: const RoundedRectangleBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(6)))),
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const CreateListingScreen()));
+                          },
+                          icon: const Icon(
+                            LucideIcons.edit,
+                            color: Colors.white,
+                            size: 24,
+                          ),
+                          label: const Text(
+                            'Create Listing',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18),
+                          )),
+                    ))
+                  ],
+                ),
+                const SizedBox(height: 18),
+                const Text(
+                  'Overview',
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                ),
+                GridView(
+                  padding: const EdgeInsets.only(bottom: 18, top: 8),
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      childAspectRatio: 2,
+                      crossAxisSpacing: 8,
+                      mainAxisSpacing: 8),
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  children: const [
+                    OverviewCard(
+                        data: '0',
+                        icon: LucideIcons.messageSquare,
+                        description: 'Chats to answer'),
+                    OverviewCard(
+                        data: '0',
+                        icon: LucideIcons.tag,
+                        description: 'Active listings'),
+                    OverviewCard(
+                        data: '0',
+                        icon: LucideIcons.arrowUpCircle,
+                        description: 'Listings to renew'),
+                    OverviewCard(
+                        data: '0',
+                        icon: LucideIcons.arrowLeftRight,
+                        description: 'Listings to delete & relist')
+                  ],
+                ),
+                const Text(
+                  'Performance',
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                ),
+                GridView(
+                  padding: const EdgeInsets.only(bottom: 18, top: 8),
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      childAspectRatio: 2,
+                      crossAxisSpacing: 8,
+                      mainAxisSpacing: 8),
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  children: const [
+                    OverviewCard(
+                        data: "\$0.00", description: 'No payout history'),
+                    OverviewCard(
                       data: '0',
                       icon: LucideIcons.messageSquare,
-                      description: 'Chats to answer'),
-                  OverviewCard(
+                      description: 'Clicks on listing',
+                      subtext: 'Last 7 days',
+                    ),
+                    OverviewCard(
                       data: '0',
-                      icon: LucideIcons.tag,
-                      description: 'Active listings'),
-                  OverviewCard(
+                      icon: LucideIcons.messageSquare,
+                      description: 'Seller rating',
+                      subtext: '0 ratings',
+                    ),
+                    OverviewCard(
                       data: '0',
-                      icon: LucideIcons.arrowUpCircle,
-                      description: 'Listings to renew'),
-                  OverviewCard(
-                      data: '0',
-                      icon: LucideIcons.arrowLeftRight,
-                      description: 'Listings to delete & relist')
-                ],
-              ),
-              const Text(
-                'Performance',
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-              ),
-              GridView(
-                padding: const EdgeInsets.only(bottom: 18, top: 8),
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    childAspectRatio: 2,
-                    crossAxisSpacing: 8,
-                    mainAxisSpacing: 8),
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                children: const [
-                  OverviewCard(
-                      data: "\$0.00", description: 'No payout history'),
-                  OverviewCard(
-                    data: '0',
-                    icon: LucideIcons.messageSquare,
-                    description: 'Clicks on listing',
-                    subtext: 'Last 7 days',
-                  ),
-                  OverviewCard(
-                    data: '0',
-                    icon: LucideIcons.messageSquare,
-                    description: 'Seller rating',
-                    subtext: '0 ratings',
-                  ),
-                  OverviewCard(
-                    data: '0',
-                    icon: LucideIcons.messageSquare,
-                    description: 'New followers',
-                    subtext: 'Last 7 days',
-                  ),
-                ],
-              ),
-            ],
+                      icon: LucideIcons.messageSquare,
+                      description: 'New followers',
+                      subtext: 'Last 7 days',
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ));
   }

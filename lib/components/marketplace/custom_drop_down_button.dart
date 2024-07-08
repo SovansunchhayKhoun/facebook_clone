@@ -30,14 +30,12 @@ class _CustomDropDownButtonState extends State<CustomDropDownButton> {
       child: DropdownButtonHideUnderline(
         child: DropdownButton2<String>(
           isExpanded: true,
-          hint: const Expanded(
-            child: Text(
-              'Category',
-              style: TextStyle(
-                fontSize: 14,
-              ),
-              overflow: TextOverflow.ellipsis,
+          hint: const Text(
+            'Category',
+            style: TextStyle(
+              fontSize: 14,
             ),
+            overflow: TextOverflow.ellipsis,
           ),
           items: widget.options
               .map((String item) => DropdownMenuItem<String>(
