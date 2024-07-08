@@ -30,15 +30,15 @@ Widget buildPostItem(Post post, ColorScheme colorScheme) {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             TextButton.icon(
-                onPressed: () => print('Like button pressed'),
+                onPressed: () => {},
                 icon: const Icon(Icons.thumb_up_alt_outlined, size: 16),
                 label: const Text('Like')),
             TextButton.icon(
-                onPressed: () => print('Comment button pressed'),
+                onPressed: () => {},
                 icon: const Icon(Icons.comment_outlined, size: 16),
                 label: const Text('Comment')),
             TextButton.icon(
-                onPressed: () => print('Share button pressed'),
+                onPressed: () => {},
                 icon: const Icon(Icons.share_outlined, size: 16),
                 label: const Text('Share')),
           ],

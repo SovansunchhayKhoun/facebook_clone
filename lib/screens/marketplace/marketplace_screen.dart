@@ -23,9 +23,9 @@ class MarketPlaceScreen extends StatelessWidget {
                     children: [
                       Container(
                         padding: const EdgeInsets.only(right: 12),
-                        decoration: const BoxDecoration(
-                          border:
-                              Border(right: BorderSide(color: Colors.white)),
+                        decoration: BoxDecoration(
+                          border: Border(
+                              right: BorderSide(color: colorScheme.surface)),
                         ),
                         child: TextButton(
                           onPressed: () {
