@@ -13,7 +13,7 @@ class CustomTextInput extends StatelessWidget {
     ColorScheme colorScheme = Theme.of(context).colorScheme;
 
     return Container(
-      margin: const EdgeInsets.only(bottom: 18),
+      margin: const EdgeInsets.only(bottom: 16),
       child: TextField(
         controller: controller,
         style: const TextStyle(fontSize: 16),

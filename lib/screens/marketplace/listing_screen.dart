@@ -54,6 +54,7 @@ class ListingScreen extends StatelessWidget {
                     child: TagButton(
                       onButtonPressed: () {},
                       title: myItems[index].title,
+                      color: colorScheme.primary,
                     ),
                   ),
                 ),
@@ -82,7 +83,8 @@ class ListingScreen extends StatelessWidget {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => const CreateListingScreen()));
+                                  builder: (context) =>
+                                      const CreateListingScreen()));
                         },
                         icon: const Icon(
                           LucideIcons.edit,
