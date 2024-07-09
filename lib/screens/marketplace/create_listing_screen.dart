@@ -1,14 +1,15 @@
 import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import 'package:project/components/app_bars/action_app_bar.dart';
+import 'package:project/components/buttons/my_text_button.dart';
 import 'package:project/components/buttons/tag_button.dart';
 import 'package:project/components/marketplace/custom_drop_down_button.dart';
 import 'package:project/components/marketplace/custom_text_input.dart';
 import 'package:project/screens/marketplace/listing_screen.dart';
+import 'package:project/theme/app_size.dart';
 import 'package:project/theme/text_theme.dart';
 
 enum CategoryLabel {
@@ -77,6 +78,14 @@ class _CreateListingScreenState extends State<CreateListingScreen> {
   @override
   Widget build(BuildContext context) {
     ColorScheme colorScheme = Theme.of(context).colorScheme;
+
+    TextStyle descriptionTextStyle = TextStyle(
+        fontSize: 13,
+        color: Color.fromRGBO(
+            colorScheme.inversePrimary.red,
+            colorScheme.inversePrimary.green,
+            colorScheme.inversePrimary.blue,
+            0.75));
 
     return Scaffold(
       backgroundColor: colorScheme.onBackground,
@@ -170,13 +179,7 @@ class _CreateListingScreenState extends State<CreateListingScreen> {
                         ),
                         Text(
                           'Add more details to help your listing stand out.',
-                          style: TextStyle(
-                              fontSize: 12,
-                              color: Color.fromRGBO(
-                                  colorScheme.inversePrimary.red,
-                                  colorScheme.inversePrimary.green,
-                                  colorScheme.inversePrimary.blue,
-                                  0.75)),
+                          style: descriptionTextStyle,
                         ),
                       ],
                     ),
@@ -204,13 +207,7 @@ class _CreateListingScreenState extends State<CreateListingScreen> {
                         ),
                         Text(
                           'This listing is still public but will be hidden from your friends on Facebook and Messenger in most cases.',
-                          style: TextStyle(
-                              fontSize: 12,
-                              color: Color.fromRGBO(
-                                  colorScheme.inversePrimary.red,
-                                  colorScheme.inversePrimary.green,
-                                  colorScheme.inversePrimary.blue,
-                                  0.75)),
+                          style: descriptionTextStyle,
                         ),
                       ],
                     ),
@@ -224,6 +221,38 @@ class _CreateListingScreenState extends State<CreateListingScreen> {
                       }),
                 ],
               ),
+              const SizedBox(height: 16),
+              MyTextButton(
+                onPressed: () {},
+                borderRadius: AppSize.roundedSm,
+                text: Text(
+                  'Publish',
+                  style: TextStyle(
+                      color: colorScheme.inversePrimary,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold),
+                ),
+                color: colorScheme.primary,
+              ),
+              const SizedBox(height: 8),
+              Text(
+                  'Marketplace items are public and can be seen by anyone on or off Facebook. Listins also may be featured on other Meta platforms, such as Instagram.',
+                  textAlign: TextAlign.center,
+                  style: descriptionTextStyle),
+              const SizedBox(height: 8),
+              const SizedBox(height: 8),
+              Text(
+                'All listings go through a quick standard review when published to make sure they follow our Commerce policies before they are visible to others. Items like animals, drugs, weapons, counterfeits and more are not allowed.',
+                style: descriptionTextStyle,
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 8),
+              Text(
+                'Marketplace listings must not discriminate. See our Discrimination policies',
+                textAlign: TextAlign.center,
+                style: descriptionTextStyle,
+              ),
+              const SizedBox(height: 48),
             ],
           ),
         ),
