@@ -25,7 +25,7 @@ Widget buildPostItem(Post post, ColorScheme colorScheme) {
         ),
         Text(post.caption),
         const SizedBox(height: 8),
-        Image.network(post.postImageUrl),
+        if (post.postImageUrl != null) Image.network(post.postImageUrl ?? ''),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
