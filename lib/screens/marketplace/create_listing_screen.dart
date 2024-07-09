@@ -1,5 +1,7 @@
 import 'dart:io';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import 'package:project/components/app_bars/action_app_bar.dart';
@@ -38,10 +40,12 @@ class _CreateListingScreenState extends State<CreateListingScreen> {
   final ImagePicker _picker = ImagePicker();
   XFile? _image;
 
+  bool switchValue = true;
+
   final TextEditingController _titleController = TextEditingController();
   final TextEditingController _priceController = TextEditingController();
-  // final TextEditingController _descriptionController = TextEditingController();
-  // final TextEditingController _locationController = TextEditingController();
+  final TextEditingController _descriptionController = TextEditingController();
+  final TextEditingController _locationController = TextEditingController();
 
   final List<String> _categoryOptions = [
     'Apple',
@@ -126,7 +130,7 @@ class _CreateListingScreenState extends State<CreateListingScreen> {
                       .copyWith(fontWeight: FontWeight.w500)),
               Container(
                 alignment: Alignment.center,
-                margin: const EdgeInsets.only(top: 12),
+                margin: const EdgeInsets.only(top: 16, bottom: 16),
                 height: 40,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
@@ -142,6 +146,83 @@ class _CreateListingScreenState extends State<CreateListingScreen> {
                     ),
                   ),
                 ),
+              ),
+              CustomTextInput(
+                  hintText: 'Description (recommended)',
+                  controller: _descriptionController),
+              CustomTextInput(
+                  hintText: 'Location', controller: _locationController),
+              Divider(
+                color: colorScheme.surface,
+              ),
+              const SizedBox(height: 8),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          'More listing options',
+                          style: TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.w500),
+                        ),
+                        Text(
+                          'Add more details to help your listing stand out.',
+                          style: TextStyle(
+                              fontSize: 12,
+                              color: Color.fromRGBO(
+                                  colorScheme.inversePrimary.red,
+                                  colorScheme.inversePrimary.green,
+                                  colorScheme.inversePrimary.blue,
+                                  0.75)),
+                        ),
+                      ],
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      print('object');
+                    },
+                    child: Icon(LucideIcons.chevronDown),
+                  )
+                ],
+              ),
+              const SizedBox(height: 16),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          'Hide from friends',
+                          style: TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.w500),
+                        ),
+                        Text(
+                          'This listing is still public but will be hidden from your friends on Facebook and Messenger in most cases.',
+                          style: TextStyle(
+                              fontSize: 12,
+                              color: Color.fromRGBO(
+                                  colorScheme.inversePrimary.red,
+                                  colorScheme.inversePrimary.green,
+                                  colorScheme.inversePrimary.blue,
+                                  0.75)),
+                        ),
+                      ],
+                    ),
+                  ),
+                  CupertinoSwitch(
+                      value: switchValue,
+                      onChanged: (bool? value) {
+                        setState(() {
+                          switchValue = value ?? false;
+                        });
+                      }),
+                ],
               ),
             ],
           ),
