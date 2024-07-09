@@ -48,6 +48,7 @@ class PostCard extends StatelessWidget {
                           profilePic: post.ownProfile,
                           timeAgo: post.timeAgo,
                           username: post.username,
+                          hideHoriz: true,
                         ),
                         Padding(
                           padding: const EdgeInsets.all(AppSize.paddingSm),
@@ -143,6 +144,7 @@ class PostCard extends StatelessWidget {
     required String username,
     required String timeAgo,
     required String profilePic,
+    bool hideHoriz = false,
   }) {
     ColorScheme colorScheme = Theme.of(context).colorScheme;
     TextTheme textTheme = Theme.of(context).textTheme;
@@ -183,10 +185,12 @@ class PostCard extends StatelessWidget {
           ),
         ],
       ),
-      trailing: Icon(
-        Icons.more_horiz,
-        color: colorScheme.surface,
-      ),
+      trailing: !hideHoriz
+          ? Icon(
+              Icons.more_horiz,
+              color: colorScheme.surface,
+            )
+          : const Icon(null),
     );
   }
 }
