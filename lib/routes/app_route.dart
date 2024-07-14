@@ -7,7 +7,7 @@ import 'package:project/screens/video/video_screen.dart';
 
 class AppRoute {
   static final appPages = [
-    const FeedsScreen(),
+    FeedsScreen(),
     const VideoScreen(),
     const MarketPlaceScreen(),
     const NotificationsScreen(),
@@ -23,7 +23,7 @@ class AppRoute {
   ];
 
   static final routes = {
-    RouteConstant.feedsScreen.name: (context) => const FeedsScreen(),
+    RouteConstant.feedsScreen.name: (context) => FeedsScreen(),
     RouteConstant.videoScreen.name: (context) => const VideoScreen(),
     RouteConstant.marketplaceScreen.name: (context) =>
         const MarketPlaceScreen(),

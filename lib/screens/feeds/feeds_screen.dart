@@ -4,7 +4,8 @@ import 'package:project/widgets/posts/build_post_feeds.dart';
 import 'package:project/widgets/stories/build_story_section.dart';
 
 class FeedsScreen extends StatelessWidget {
-  const FeedsScreen({super.key});
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  FeedsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,8 +21,8 @@ class FeedsScreen extends StatelessWidget {
         children: [
           buildInputSection(ownProfile, colorScheme),
           buildStorySection(colorScheme),
-          buildPostFeeds(colorScheme, ownProfile),
-          buildPostFeeds(colorScheme, ownProfile)
+          buildPostFeeds(_scaffoldKey, colorScheme, ownProfile),
+          buildPostFeeds(_scaffoldKey, colorScheme, ownProfile)
         ],
       ),
     ));
