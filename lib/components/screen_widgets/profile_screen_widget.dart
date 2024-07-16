@@ -7,6 +7,7 @@ import 'package:project/components/buttons/my_text_button.dart';
 import 'package:project/components/buttons/profile_button.dart';
 import 'package:project/components/cards/friend_card.dart';
 import 'package:project/screens/avatar.dart';
+import 'package:project/screens/profile/photo_screen.dart';
 import 'package:project/theme/app_size.dart';
 import 'package:project/theme/text_theme.dart';
 
@@ -16,11 +17,10 @@ class ProfileScreenWidget {
   final String profileImg =
       'https://www.siliconera.com/wp-content/uploads/2023/09/image-via-gege-akutami-shueisha-and-toho-animation-2.jpeg';
 
-  Widget getBuildUserFriends(
-          BuildContext context, BoxConstraints constraints) =>
-      _buildUserFriends(context, constraints);
+  Widget getBuildUserFriends(BuildContext context) =>
+      _buildUserFriends(context);
 
-  Widget _buildUserFriends(BuildContext context, BoxConstraints constraints) {
+  Widget _buildUserFriends(BuildContext context) {
     TextTheme textTheme = Theme.of(context).textTheme;
     ColorScheme colorScheme = Theme.of(context).colorScheme;
     const String img =
@@ -354,9 +354,16 @@ class ProfileScreenWidget {
     );
   }
 
-  Widget getBuildUserButtons(BuildContext context) =>
-      _buildUserButtons(context);
-  Widget _buildUserButtons(BuildContext context) {
+  Widget getBuildTabBar(
+    BuildContext context,
+    TabController tabController,
+  ) =>
+      _buildTabBar(context, tabController);
+      
+  Widget _buildTabBar(
+    BuildContext context,
+    TabController tabController,
+  ) {
     ColorScheme colorScheme = Theme.of(context).colorScheme;
     Color textBtnColor = Color.fromRGBO(
       colorScheme.primary.red,
@@ -364,36 +371,76 @@ class ProfileScreenWidget {
       colorScheme.primary.blue,
       0.1,
     );
-    return Container(
-      padding: const EdgeInsets.symmetric(
-        horizontal: AppSize.paddingMd,
-      ),
-      child: Row(
-        children: [
-          MyTextButton(
-            backgroundColor: textBtnColor,
-            onPressed: () {},
-            text: const Text('Posts'),
-          ),
-          const SizedBox(
-            width: AppSize.spaceMd,
-          ),
-          MyTextButton(
-            backgroundColor: textBtnColor,
-            onPressed: () {},
-            text: const Text('Photos'),
-          ),
-          const SizedBox(
-            width: AppSize.spaceMd,
-          ),
-          MyTextButton(
-            backgroundColor: textBtnColor,
-            onPressed: () {},
-            text: const Text('Reels'),
-          ),
-        ],
-      ),
+    return TabBar(
+      controller: tabController,
+      tabs: [
+        MyTextButton(
+          backgroundColor: textBtnColor,
+          onPressed: () {},
+          text: const Text('Posts'),
+        ),
+        const SizedBox(
+          width: AppSize.spaceMd,
+        ),
+        MyTextButton(
+          backgroundColor: textBtnColor,
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => PhotoScreen(),
+              ),
+            );
+          },
+          text: const Text('Photos'),
+        ),
+        const SizedBox(
+          width: AppSize.spaceMd,
+        ),
+        MyTextButton(
+          backgroundColor: textBtnColor,
+          onPressed: () {},
+          text: const Text('Reels'),
+        ),
+      ],
     );
+    // return Container(
+    //   padding: const EdgeInsets.symmetric(
+    //     horizontal: AppSize.paddingMd,
+    //   ),
+    //   child: Row(
+    //     children: [
+    //       MyTextButton(
+    //         backgroundColor: textBtnColor,
+    //         onPressed: () {},
+    //         text: const Text('Posts'),
+    //       ),
+    //       const SizedBox(
+    //         width: AppSize.spaceMd,
+    //       ),
+    //       MyTextButton(
+    //         backgroundColor: textBtnColor,
+    //         onPressed: () {
+    //           Navigator.push(
+    //             context,
+    //             MaterialPageRoute(
+    //               builder: (context) => PhotoScreen(),
+    //             ),
+    //           );
+    //         },
+    //         text: const Text('Photos'),
+    //       ),
+    //       const SizedBox(
+    //         width: AppSize.spaceMd,
+    //       ),
+    //       MyTextButton(
+    //         backgroundColor: textBtnColor,
+    //         onPressed: () {},
+    //         text: const Text('Reels'),
+    //       ),
+    //     ],
+    //   ),
+    // );
   }
 
   Widget getBuildProfileButtons(BuildContext context) =>
