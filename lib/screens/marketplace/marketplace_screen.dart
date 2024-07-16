@@ -53,9 +53,15 @@ class MarketPlaceScreen extends StatelessWidget {
                           left: 16,
                           right: 16,
                         ),
-                        decoration: const BoxDecoration(
-                            borderRadius: BorderRadius.all(Radius.circular(18)),
-                            color: Color.fromRGBO(54, 108, 224, 0.25)),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(18)),
+                          color: Color.fromRGBO(
+                            colorScheme.primary.red,
+                            colorScheme.primary.green,
+                            colorScheme.primary.blue,
+                            0.1,
+                          ),
+                        ),
                         child: Text(
                           'For you',
                           style: TextStyle(

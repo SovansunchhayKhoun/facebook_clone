@@ -8,7 +8,7 @@ import 'package:project/screens/profile/profile_screen.dart';
 import 'package:project/theme/text_theme.dart';
 
 const String coverImg =
-    'https://www.dexerto.com/cdn-cgi/image/width=3840,quality=60,format=auto/https://editors.dexerto.com/wp-content/uploads/2023/08/04/jujutsu-kaisen-season-2-satoru-gojo.jpeg';
+    'https://imageio.forbes.com/specials-images/imageserve/6064b148afc9b47d022718d1/Hennessey-Venom-F5/960x0.jpg?height=473&width=711&fit=bounds';
 
 class ItemDetailScreen extends StatelessWidget {
   const ItemDetailScreen({super.key});

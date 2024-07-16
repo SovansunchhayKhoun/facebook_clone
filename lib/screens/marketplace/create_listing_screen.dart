@@ -1,12 +1,15 @@
 import 'dart:io';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import 'package:project/components/app_bars/action_app_bar.dart';
+import 'package:project/components/buttons/my_text_button.dart';
 import 'package:project/components/buttons/tag_button.dart';
 import 'package:project/components/marketplace/custom_drop_down_button.dart';
 import 'package:project/components/marketplace/custom_text_input.dart';
 import 'package:project/screens/marketplace/listing_screen.dart';
+import 'package:project/theme/app_size.dart';
 import 'package:project/theme/text_theme.dart';
 
 enum CategoryLabel {
@@ -38,10 +41,12 @@ class _CreateListingScreenState extends State<CreateListingScreen> {
   final ImagePicker _picker = ImagePicker();
   XFile? _image;
 
+  bool switchValue = true;
+
   final TextEditingController _titleController = TextEditingController();
   final TextEditingController _priceController = TextEditingController();
-  // final TextEditingController _descriptionController = TextEditingController();
-  // final TextEditingController _locationController = TextEditingController();
+  final TextEditingController _descriptionController = TextEditingController();
+  final TextEditingController _locationController = TextEditingController();
 
   final List<String> _categoryOptions = [
     'Apple',
@@ -73,6 +78,14 @@ class _CreateListingScreenState extends State<CreateListingScreen> {
   @override
   Widget build(BuildContext context) {
     ColorScheme colorScheme = Theme.of(context).colorScheme;
+
+    TextStyle descriptionTextStyle = TextStyle(
+        fontSize: 13,
+        color: Color.fromRGBO(
+            colorScheme.inversePrimary.red,
+            colorScheme.inversePrimary.green,
+            colorScheme.inversePrimary.blue,
+            0.75));
 
     return Scaffold(
       backgroundColor: colorScheme.onBackground,
@@ -126,7 +139,7 @@ class _CreateListingScreenState extends State<CreateListingScreen> {
                       .copyWith(fontWeight: FontWeight.w500)),
               Container(
                 alignment: Alignment.center,
-                margin: const EdgeInsets.only(top: 12),
+                margin: const EdgeInsets.only(top: 16, bottom: 16),
                 height: 40,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
@@ -143,6 +156,103 @@ class _CreateListingScreenState extends State<CreateListingScreen> {
                   ),
                 ),
               ),
+              CustomTextInput(
+                  hintText: 'Description (recommended)',
+                  controller: _descriptionController),
+              CustomTextInput(
+                  hintText: 'Location', controller: _locationController),
+              Divider(
+                color: colorScheme.surface,
+              ),
+              const SizedBox(height: 8),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          'More listing options',
+                          style: TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.w500),
+                        ),
+                        Text(
+                          'Add more details to help your listing stand out.',
+                          style: descriptionTextStyle,
+                        ),
+                      ],
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      print('object');
+                    },
+                    child: Icon(LucideIcons.chevronDown),
+                  )
+                ],
+              ),
+              const SizedBox(height: 16),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          'Hide from friends',
+                          style: TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.w500),
+                        ),
+                        Text(
+                          'This listing is still public but will be hidden from your friends on Facebook and Messenger in most cases.',
+                          style: descriptionTextStyle,
+                        ),
+                      ],
+                    ),
+                  ),
+                  CupertinoSwitch(
+                      value: switchValue,
+                      onChanged: (bool? value) {
+                        setState(() {
+                          switchValue = value ?? false;
+                        });
+                      }),
+                ],
+              ),
+              const SizedBox(height: 16),
+              MyTextButton(
+                onPressed: () {},
+                borderRadius: AppSize.roundedSm,
+                text: Text(
+                  'Publish',
+                  style: TextStyle(
+                      color: colorScheme.inversePrimary,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold),
+                ),
+                color: colorScheme.primary,
+              ),
+              const SizedBox(height: 8),
+              Text(
+                  'Marketplace items are public and can be seen by anyone on or off Facebook. Listins also may be featured on other Meta platforms, such as Instagram.',
+                  textAlign: TextAlign.center,
+                  style: descriptionTextStyle),
+              const SizedBox(height: 8),
+              const SizedBox(height: 8),
+              Text(
+                'All listings go through a quick standard review when published to make sure they follow our Commerce policies before they are visible to others. Items like animals, drugs, weapons, counterfeits and more are not allowed.',
+                style: descriptionTextStyle,
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 8),
+              Text(
+                'Marketplace listings must not discriminate. See our Discrimination policies',
+                textAlign: TextAlign.center,
+                style: descriptionTextStyle,
+              ),
+              const SizedBox(height: 48),
             ],
           ),
         ),
