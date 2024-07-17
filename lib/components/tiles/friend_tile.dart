@@ -32,11 +32,11 @@ class FriendTile extends StatelessWidget {
                 children: [
                   Expanded(
                     child: MyTextButton(
-                      text: Text(
+                      text: const Text(
                         'Add friend',
                         style: TextStyle(
                             fontSize: 14,
-                            color: colorScheme.inversePrimary,
+                            color: Colors.white,
                             fontWeight: FontWeight.bold),
                       ),
                       color: colorScheme.primary,
