@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import 'package:project/components/marketplace/list_item_tile.dart';
 import 'package:project/screens/marketplace/listing_screen.dart';
+import 'package:project/theme/base_app_color.dart';
 
 class MarketPlaceScreen extends StatelessWidget {
   const MarketPlaceScreen({super.key});
@@ -54,14 +55,9 @@ class MarketPlaceScreen extends StatelessWidget {
                           right: 16,
                         ),
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(18)),
-                          color: Color.fromRGBO(
-                            colorScheme.primary.red,
-                            colorScheme.primary.green,
-                            colorScheme.primary.blue,
-                            0.1,
-                          ),
-                        ),
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(18)),
+                            color: BaseAppColor.lightBlue),
                         child: Text(
                           'For you',
                           style: TextStyle(
