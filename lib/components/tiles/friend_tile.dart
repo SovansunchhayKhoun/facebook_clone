@@ -25,17 +25,18 @@ class FriendTile extends StatelessWidget {
             children: [
               const Text(
                 'User 101',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
               ),
               const SizedBox(height: 4),
               Row(
                 children: [
                   Expanded(
                     child: MyTextButton(
-                      text: Text(
+                      text: const Text(
                         'Add friend',
                         style: TextStyle(
-                            color: colorScheme.inversePrimary,
+                            fontSize: 14,
+                            color: Colors.white,
                             fontWeight: FontWeight.bold),
                       ),
                       // color: colorScheme.primary,
@@ -49,6 +50,7 @@ class FriendTile extends StatelessWidget {
                       text: Text(
                         'Remove',
                         style: TextStyle(
+                            fontSize: 14,
                             color: colorScheme.inversePrimary,
                             fontWeight: FontWeight.bold),
                       ),

@@ -82,7 +82,7 @@ Widget _sendButton(BuildContext context) {
           Text(
             'Send',
             style: textTheme.bodySmall!.copyWith(
-              color: colorScheme.inversePrimary,
+              color: Colors.white,
               fontWeight: FontWeight.bold,
             ),
           ),

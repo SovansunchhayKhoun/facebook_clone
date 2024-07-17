@@ -226,10 +226,10 @@ class _CreateListingScreenState extends State<CreateListingScreen> {
                 backgroundColor: colorScheme.primary,
                 onPressed: () {},
                 borderRadius: AppSize.roundedSm,
-                text: Text(
+                text: const Text(
                   'Publish',
                   style: TextStyle(
-                      color: colorScheme.inversePrimary,
+                      color: Colors.white,
                       fontSize: 18,
                       fontWeight: FontWeight.bold),
                 ),
