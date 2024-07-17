@@ -10,7 +10,7 @@ TextTheme textTheme = const TextTheme(
     fontWeight: FontWeight.bold,
   ),
   bodySmall: TextStyle(
-    fontSize: 16,
+    fontSize: 15,
   ),
   bodyMedium: TextStyle(
     fontSize: 18,
