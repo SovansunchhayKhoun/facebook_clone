@@ -3,7 +3,7 @@ import 'package:project/models/post.dart';
 
 Widget buildPostItem(Post post, ColorScheme colorScheme) {
   return Container(
-    color: colorScheme.surface,
+    color: colorScheme.onBackground,
     margin: const EdgeInsets.only(top: 20, bottom: 20),
     padding: const EdgeInsets.all(10),
     child: Column(
@@ -25,7 +25,7 @@ Widget buildPostItem(Post post, ColorScheme colorScheme) {
         ),
         Text(post.caption),
         const SizedBox(height: 8),
-        Image.network(post.postImageUrl),
+        if (post.postImageUrl != null) Image.network(post.postImageUrl ?? ''),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [

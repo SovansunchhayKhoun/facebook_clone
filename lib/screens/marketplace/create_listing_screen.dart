@@ -186,9 +186,9 @@ class _CreateListingScreenState extends State<CreateListingScreen> {
                   ),
                   GestureDetector(
                     onTap: () {
-                      print('object');
+                      // print('object');
                     },
-                    child: Icon(LucideIcons.chevronDown),
+                    child: const Icon(LucideIcons.chevronDown),
                   )
                 ],
               ),
@@ -223,6 +223,7 @@ class _CreateListingScreenState extends State<CreateListingScreen> {
               ),
               const SizedBox(height: 16),
               MyTextButton(
+                backgroundColor: colorScheme.primary,
                 onPressed: () {},
                 borderRadius: AppSize.roundedSm,
                 text: Text(
@@ -232,7 +233,7 @@ class _CreateListingScreenState extends State<CreateListingScreen> {
                       fontSize: 18,
                       fontWeight: FontWeight.bold),
                 ),
-                color: colorScheme.primary,
+                // color: colorScheme.primary,
               ),
               const SizedBox(height: 8),
               Text(

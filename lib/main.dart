@@ -30,7 +30,9 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       routes: AppRoute.routes,
       // theme: appTheme,
-      home: const LayoutScreen(),
+      home: const SafeArea(
+        child: LayoutScreen(),
+      ),
       theme: appTheme(context),
     );
   }

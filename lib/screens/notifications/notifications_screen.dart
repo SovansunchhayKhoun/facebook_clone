@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:project/components/tiles/friend_tile.dart';
 
 class NotificationsScreen extends StatelessWidget {

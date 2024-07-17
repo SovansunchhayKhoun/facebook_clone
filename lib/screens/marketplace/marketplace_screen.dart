@@ -54,7 +54,7 @@ class MarketPlaceScreen extends StatelessWidget {
                           right: 16,
                         ),
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(18)),
+                          borderRadius: const BorderRadius.all(Radius.circular(18)),
                           color: Color.fromRGBO(
                             colorScheme.primary.red,
                             colorScheme.primary.green,
