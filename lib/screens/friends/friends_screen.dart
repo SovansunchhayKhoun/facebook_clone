@@ -29,7 +29,7 @@ class FriendsScreen extends StatelessWidget {
                               fontWeight: FontWeight.bold,
                               fontSize: 16),
                         ),
-                        color: colorScheme.surface),
+                        backgroundColor: colorScheme.surface),
                     const SizedBox(width: 12),
                     MyTextButton(
                         text: Text(
@@ -39,7 +39,7 @@ class FriendsScreen extends StatelessWidget {
                               fontWeight: FontWeight.bold,
                               fontSize: 16),
                         ),
-                        color: colorScheme.surface),
+                        backgroundColor: colorScheme.surface),
                   ],
                 ),
                 const SizedBox(height: 12),

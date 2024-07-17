@@ -76,7 +76,7 @@ class NotificationsScreen extends StatelessWidget {
                     fontSize: 16,
                   ),
                 ),
-                color: colorScheme.surface,
+                backgroundColor: colorScheme.surface,
                 borderRadius: AppSize.roundedSm,
               ),
             ),
