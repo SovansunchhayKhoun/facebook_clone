@@ -201,8 +201,8 @@ class _MyTabBarState extends State<MyTabBar> {
         bottom: AppSize.paddingMd,
       ),
       tabs: [
-        _buildTab(context, Text('Posts')),
-        _buildTab(context, Text('Photos')),
+        _buildTab(context, const Text('Posts')),
+        _buildTab(context, const Text('Photos')),
       ],
     );
   }

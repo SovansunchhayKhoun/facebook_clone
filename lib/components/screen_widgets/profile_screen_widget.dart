@@ -1,7 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import 'package:project/components/buttons/my_text_button.dart';
 import 'package:project/components/buttons/profile_button.dart';
@@ -388,7 +385,7 @@ class ProfileScreenWidget {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => PhotoScreen(),
+                builder: (context) => const PhotoScreen(),
               ),
             );
           },
