@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:project/components/app_bars/profile_app_bar.dart';
-import 'package:project/components/buttons/my_text_button.dart';
 import 'package:project/components/cards/post_card.dart';
 import 'package:project/components/screen_widgets/profile_screen_widget.dart';
 import 'package:project/layouts/my_bottom_nagivation_bar.dart';
@@ -24,20 +23,18 @@ class _ProfileScreenState extends State<ProfileScreen>
     ownProfile:
         'https://i.pinimg.com/736x/64/81/22/6481225432795d8cdf48f0f85800cf66.jpg',
     caption: 'A beautiful day to read and enjoy a healthy breakfast!',
-    // postImageUrl:
-    //     'https://i.pinimg.com/736x/64/81/22/6481225432795d8cdf48f0f85800cf66.jpg',
   );
 
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 3, vsync: this);
+    _tabController = TabController(length: 2, vsync: this);
   }
 
   @override
   void dispose() {
-    super.dispose();
     _tabController.dispose();
+    super.dispose();
   }
 
   @override
@@ -48,132 +45,50 @@ class _ProfileScreenState extends State<ProfileScreen>
       appBar: const ProfileAppBar(
         title: 'Sunchhay Khoun',
       ),
-      body: Expanded(
-        child: CustomScrollView(
-          physics: const ClampingScrollPhysics(),
-          slivers: <Widget>[
-            SliverToBoxAdapter(
-              child: Column(
-                children: [
-                  ProfileScreenWidget().getBuildUserProfile(context),
-                  const SizedBox(height: 50),
-                  Container(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        ProfileScreenWidget().getBuildUserName(context),
-                        const SizedBox(height: 24.0),
-                        ProfileScreenWidget().getBuildProfileButtons(context),
-                      ],
-                    ),
+      body: NestedScrollView(
+        physics: const ClampingScrollPhysics(),
+        headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) =>
+            [
+          SliverToBoxAdapter(
+            child: Column(
+              children: [
+                ProfileScreenWidget().getBuildUserProfile(context),
+                const SizedBox(height: 50),
+                Container(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      ProfileScreenWidget().getBuildUserName(context),
+                      const SizedBox(height: 24.0),
+                      ProfileScreenWidget().getBuildProfileButtons(context),
+                    ],
                   ),
-                  ProfileScreenWidget().getBuildSectionDivider(context),
-                  const SizedBox(height: 16.0),
-                ],
-              ),
-            ),
-            SliverPersistentHeader(
-              pinned: true,
-              delegate: _SliverAppBarDelegate(
-                MyTabBar(
-                  tabController: _tabController,
                 ),
+                ProfileScreenWidget().getBuildSectionDivider(context),
+              ],
+            ),
+          ),
+          SliverPersistentHeader(
+            pinned: true,
+            delegate: _SliverAppBarDelegate(
+              MyTabBar(
+                tabController: _tabController,
               ),
             ),
-            SliverList(
-              delegate: SliverChildBuilderDelegate(
-                (BuildContext context, int index) {
-                  return _buildTabContent(context, index);
-                },
-                childCount: 3, // Number of tabs
-              ),
-            ),
+          ),
+        ],
+        body: TabBarView(
+          physics: const NeverScrollableScrollPhysics(),
+          controller: _tabController,
+          children: [
+            _buildTabContent(context, 0),
+            _buildTabContent(context, 1),
           ],
         ),
       ),
       bottomNavigationBar: const MyBottomNavigationBar(),
     );
-
-    // body: SingleChildScrollView(
-    //   child: LayoutBuilder(
-    //     builder: (context, constraints) => Column(
-    //       crossAxisAlignment: CrossAxisAlignment.start,
-    //       children: [
-    //         ProfileScreenWidget().getBuildUserProfile(context),
-    //         const SizedBox(
-    //           height: 50,
-    //         ),
-    //         Container(
-    //           padding: const EdgeInsets.all(AppSize.paddingMd),
-    //           child: Column(
-    //             crossAxisAlignment: CrossAxisAlignment.start,
-    //             children: [
-    //               ProfileScreenWidget().getBuildUserName(context),
-    //               const SizedBox(
-    //                 height: AppSize.spaceLg,
-    //               ),
-    //               ProfileScreenWidget().getBuildProfileButtons(context),
-    //             ],
-    //           ),
-    //         ),
-    //         Divider(
-    //           height: 4,
-    //           thickness: 5,
-    //           color: colorScheme.surface,
-    //         ),
-    //         ProfileScreenWidget().getBuildSectionDivider(context),
-    //         const SizedBox(
-    //           height: AppSize.spaceMd,
-    //         ),
-    //         ProfileScreenWidget().getBuildUserButtons(context),
-    //         Divider(
-    //           thickness: 0.5,
-    //           color: colorScheme.surface,
-    //         ),
-    //         ProfileScreenWidget().getBuildUserDetails(context),
-    //         ProfileScreenWidget().getBuildUserFriends(context, constraints),
-    //         const SizedBox(
-    //           height: AppSize.spaceMd,
-    //         ),
-    //         Padding(
-    //           padding:
-    //               const EdgeInsets.symmetric(horizontal: AppSize.paddingMd),
-    //           child: Divider(
-    //             height: 4,
-    //             thickness: 5,
-    //             color: colorScheme.surface,
-    //           ),
-    //         ),
-    //         ProfileScreenWidget().getBuildSectionDivider(context),
-    //         const SizedBox(
-    //           height: AppSize.spaceMd,
-    //         ),
-    //         ProfileScreenWidget().getBuildPostActions(context),
-    //         ProfileScreenWidget().getBuildSectionDivider(context),
-    //         Flex(
-    //           direction: Axis.vertical,
-    //           children: List.generate(
-    //             4,
-    //             (index) => Column(
-    //               children: [
-    //                 PostCard(
-    //                   post: userPost,
-    //                   isShared: index % 2 == 0,
-    //                 ),
-    //                 Divider(
-    //                   color: colorScheme.background,
-    //                   height: 0,
-    //                   thickness: 6,
-    //                 ),
-    //               ],
-    //             ),
-    //           ),
-    //         ),
-    //       ],
-    //     ),
-    //   ),
-    // ),
   }
 
   Widget _buildTabContent(BuildContext context, int index) {
@@ -218,8 +133,6 @@ class _ProfileScreenState extends State<ProfileScreen>
         );
       case 1:
         return const PhotoScreen();
-      case 2:
-        return const Center(child: Text("It's sunny here"));
       default:
         return Container(); // Placeholder
     }
@@ -232,9 +145,9 @@ class _SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
   final PreferredSizeWidget _tabBar;
 
   @override
-  double get minExtent => _tabBar.preferredSize.height;
+  double get minExtent => _tabBar.preferredSize.height + 46;
   @override
-  double get maxExtent => _tabBar.preferredSize.height;
+  double get maxExtent => _tabBar.preferredSize.height + 46;
 
   @override
   Widget build(
@@ -242,7 +155,10 @@ class _SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
     ColorScheme colorScheme = Theme.of(context).colorScheme;
     return Container(
       color: colorScheme.onBackground,
-      child: _tabBar,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: AppSize.paddingMd),
+        child: _tabBar,
+      ),
     );
   }
 
@@ -252,14 +168,21 @@ class _SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
   }
 }
 
-class MyTabBar extends StatelessWidget implements PreferredSizeWidget {
+class MyTabBar extends StatefulWidget implements PreferredSizeWidget {
   final TabController tabController;
-
   const MyTabBar({
     super.key,
     required this.tabController,
   });
 
+  @override
+  State<MyTabBar> createState() => _MyTabBarState();
+
+  @override
+  Size get preferredSize => const Size.fromHeight(46);
+}
+
+class _MyTabBarState extends State<MyTabBar> {
   @override
   Widget build(BuildContext context) {
     ColorScheme colorScheme = Theme.of(context).colorScheme;
@@ -271,39 +194,25 @@ class MyTabBar extends StatelessWidget implements PreferredSizeWidget {
     );
     return TabBar(
       isScrollable: true,
-      controller: tabController,
+      controller: widget.tabController,
       tabAlignment: TabAlignment.start,
-      indicator: BoxDecoration(
-        border: Border.all(
-          width: 0,
-        ),
+      indicatorColor: Colors.transparent,
+      padding: const EdgeInsets.only(
+        bottom: AppSize.paddingMd,
       ),
       tabs: [
-        MyTextButton(
-          backgroundColor: textBtnColor,
-          onPressed: () {},
-          text: const Text('Posts'),
-        ),
-        const SizedBox(
-          width: AppSize.spaceMd,
-        ),
-        MyTextButton(
-          backgroundColor: textBtnColor,
-          onPressed: () {},
-          text: const Text('Photos'),
-        ),
-        const SizedBox(
-          width: AppSize.spaceMd,
-        ),
-        MyTextButton(
-          backgroundColor: textBtnColor,
-          onPressed: () {},
-          text: const Text('Reels'),
-        ),
+        _buildTab(context, Text('Posts')),
+        _buildTab(context, Text('Photos')),
       ],
     );
   }
 
-  @override
-  Size get preferredSize => const Size.fromHeight(50);
+  Widget _buildTab(
+    BuildContext context,
+    Text text,
+  ) {
+    return Tab(
+      child: text,
+    );
+  }
 }
