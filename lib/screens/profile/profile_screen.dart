@@ -6,6 +6,7 @@ import 'package:project/layouts/my_bottom_nagivation_bar.dart';
 import 'package:project/models/post.dart';
 import 'package:project/screens/profile/photo_screen.dart';
 import 'package:project/theme/app_size.dart';
+import 'package:project/theme/base_app_color.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -183,16 +184,16 @@ class MyTabBar extends StatefulWidget implements PreferredSizeWidget {
 }
 
 class _MyTabBarState extends State<MyTabBar> {
+  List<Text> tabs = const [
+    Text('Posts'),
+    Text('Photos'),
+  ];
   @override
   Widget build(BuildContext context) {
-    ColorScheme colorScheme = Theme.of(context).colorScheme;
-    Color textBtnColor = Color.fromRGBO(
-      colorScheme.primary.red,
-      colorScheme.primary.green,
-      colorScheme.primary.blue,
-      0.1,
-    );
     return TabBar(
+      onTap: (index) {
+        setState(() {});
+      },
       isScrollable: true,
       controller: widget.tabController,
       tabAlignment: TabAlignment.start,
@@ -201,8 +202,12 @@ class _MyTabBarState extends State<MyTabBar> {
         bottom: AppSize.paddingMd,
       ),
       tabs: [
-        _buildTab(context, const Text('Posts')),
-        _buildTab(context, const Text('Photos')),
+        for (int i = 0; i < tabs.length; i++)
+          _buildTab(
+            context,
+            tabs[i],
+            i == widget.tabController.index,
+          )
       ],
     );
   }
@@ -210,9 +215,21 @@ class _MyTabBarState extends State<MyTabBar> {
   Widget _buildTab(
     BuildContext context,
     Text text,
+    bool isActive,
   ) {
-    return Tab(
-      child: text,
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(
+          AppSize.circle,
+        ),
+        color: isActive ? BaseAppColor.lightBlue : Colors.transparent,
+      ),
+      padding: const EdgeInsets.symmetric(
+        horizontal: AppSize.paddingMd,
+      ),
+      child: Tab(
+        child: text,
+      ),
     );
   }
 }
