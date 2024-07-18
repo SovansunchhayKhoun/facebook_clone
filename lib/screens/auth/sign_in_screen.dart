@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project/screens/auth/forgot_password.dart';
 import 'package:project/screens/layout_screen.dart';
 
 class SignInScreen extends StatefulWidget {
@@ -25,19 +26,21 @@ class _SignInScreenState extends State<SignInScreen> {
     });
 
     // Navigate to HomeScreen
-    Navigator.push(
+    Navigator.pushReplacement(
       // ignore: use_build_context_synchronously
       context,
       MaterialPageRoute(builder: (context) => const LayoutScreen()),
     );
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Center(
         child: Padding(
-          padding: const EdgeInsets.only(top: 100, bottom: 16.0, left: 16.0, right: 16.0),
+          padding: const EdgeInsets.only(
+              top: 100, bottom: 16.0, left: 16.0, right: 16.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -94,7 +97,11 @@ class _SignInScreenState extends State<SignInScreen> {
               const SizedBox(height: 16),
               TextButton(
                 onPressed: () {
-                  // Add forgotten password functionality here
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const ForgotPassword()),
+                  );
                 },
                 child: const Text(
                   'Forgotten password?',
@@ -107,7 +114,10 @@ class _SignInScreenState extends State<SignInScreen> {
                   Expanded(child: Divider()),
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 8.0),
-                    child: Text('or', style: TextStyle(color: Colors.black),),
+                    child: Text(
+                      'or',
+                      style: TextStyle(color: Colors.black),
+                    ),
                   ),
                   Expanded(child: Divider()),
                 ],
@@ -115,7 +125,7 @@ class _SignInScreenState extends State<SignInScreen> {
               const SizedBox(height: 16),
               ElevatedButton(
                 onPressed: () {
-                  // Add create new account functionality here
+                  //
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.green,
