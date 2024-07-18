@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:project/providers/layout_provider.dart';
 import 'package:project/routes/app_route.dart';
-import 'package:project/screens/layout_screen.dart';
+import 'package:project/screens/auth/sign_in_screen.dart';
+// import 'package:project/screens/layout_screen.dart';
 import 'package:project/theme/app_theme.dart';
 import 'package:project/theme/theme_provider.dart';
 import 'package:provider/provider.dart';
@@ -30,7 +31,8 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       routes: AppRoute.routes,
       // theme: appTheme,
-      home: const LayoutScreen(),
+      // home: const LayoutScreen(),
+      home: const SignInScreen(),
       theme: appTheme(context),
     );
   }

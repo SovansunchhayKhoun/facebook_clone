@@ -1,4 +1,5 @@
 enum RouteConstant {
+  signInScreen,
   feedsScreen,
   videoScreen,
   marketplaceScreen,

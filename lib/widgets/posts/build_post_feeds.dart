@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:project/models/post.dart';
 import 'package:project/widgets/posts/build_post_item.dart';
 
-Widget buildPostFeeds(_scaffoldKey, ColorScheme colorScheme, String ownProfile) {
+Widget buildPostFeeds(scaffoldKey, ColorScheme colorScheme, String ownProfile) {
   String postImageUrl =
       'https://www.cktravels.com/wp-content/uploads/2023/08/seoul-guide-19.jpg';
 
