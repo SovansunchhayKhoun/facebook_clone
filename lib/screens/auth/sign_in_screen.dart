@@ -88,7 +88,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   ),
                 ),
                 child: _isLoading
-                    ? const CircularProgressIndicator(color: Colors.white)
+                    ? const CircularProgressIndicator(color: Colors.blue)
                     : const Text(
                         'Log In',
                         style: TextStyle(fontSize: 18, color: Colors.white),

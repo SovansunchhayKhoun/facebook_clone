@@ -39,6 +39,7 @@ dependencies:
   lucide_icons: ^0.257.0
   image_picker: ^1.1.2
   dropdown_button2: ^2.3.9
+  youtube_player_flutter: ^9.0.1
 
 dev_dependencies:
   flutter_test:
