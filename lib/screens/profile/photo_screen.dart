@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:project/data/image-source.dart';
 import 'package:project/theme/app_size.dart';
 
@@ -79,6 +80,56 @@ class PhotoScreen extends StatelessWidget {
             style: textTheme.bodyMedium!.copyWith(
               fontWeight: FontWeight.bold,
             ),
+          ),
+          const SizedBox(
+            height: AppSize.spaceLg,
+          ),
+          StaggeredGrid.count(
+            crossAxisCount: 4,
+            mainAxisSpacing: 4,
+            crossAxisSpacing: 4,
+            children: [
+              StaggeredGridTile.count(
+                crossAxisCellCount: 2,
+                mainAxisCellCount: 2,
+                child: Image.network(
+                  ImageSource.photo_2,
+                  fit: BoxFit.cover,
+                ),
+              ),
+              StaggeredGridTile.count(
+                crossAxisCellCount: 2,
+                mainAxisCellCount: 1,
+                child: Image.network(
+                  ImageSource.photo_2,
+                  fit: BoxFit.cover,
+                ),
+              ),
+              StaggeredGridTile.count(
+                crossAxisCellCount: 1,
+                mainAxisCellCount: 1,
+                child: Image.network(
+                  ImageSource.photo_2,
+                  fit: BoxFit.cover,
+                ),
+              ),
+              StaggeredGridTile.count(
+                crossAxisCellCount: 1,
+                mainAxisCellCount: 1,
+                child: Image.network(
+                  ImageSource.photo_2,
+                  fit: BoxFit.cover,
+                ),
+              ),
+              StaggeredGridTile.count(
+                crossAxisCellCount: 4,
+                mainAxisCellCount: 2,
+                child: Image.network(
+                  ImageSource.photo_2,
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ],
           ),
         ],
       ),
