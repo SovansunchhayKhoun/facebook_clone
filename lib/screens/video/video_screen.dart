@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:project/screens/video/video_player.dart';
-import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class VideoScreen extends StatefulWidget {
   const VideoScreen({super.key});
@@ -67,7 +66,10 @@ class _VideoScreenState extends State<VideoScreen> with SingleTickerProviderStat
           ),
           const Padding(
             padding: EdgeInsets.all(8.0),
-            child: Text('Be careful on wet floors'),
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: Text('Be careful on wet floors'),
+            ),
           ),
           const VideoPlayer(videoId: 'Lz-U9N6R-uw'),
           Row(
