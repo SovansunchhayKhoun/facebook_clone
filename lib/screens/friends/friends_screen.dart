@@ -15,43 +15,49 @@ class FriendsScreen extends StatelessWidget {
         backgroundColor: colorScheme.onBackground,
         body: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 12),
+            padding: const EdgeInsets.symmetric(vertical: 12),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(
-                  children: [
-                    MyTextButton(
-                        text: Text(
-                          'Friend requests',
-                          style: TextStyle(
-                              color: colorScheme.inversePrimary,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16),
-                        ),
-                        backgroundColor: colorScheme.surface),
-                    const SizedBox(width: 12),
-                    MyTextButton(
-                        text: Text(
-                          'Your friends',
-                          style: TextStyle(
-                              color: colorScheme.inversePrimary,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16),
-                        ),
-                        backgroundColor: colorScheme.surface),
-                  ],
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 18),
+                  child: Row(
+                    children: [
+                      MyTextButton(
+                          text: Text(
+                            'Friend requests',
+                            style: TextStyle(
+                                color: colorScheme.inversePrimary,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16),
+                          ),
+                          backgroundColor: colorScheme.surface),
+                      const SizedBox(width: 12),
+                      MyTextButton(
+                          text: Text(
+                            'Your friends',
+                            style: TextStyle(
+                                color: colorScheme.inversePrimary,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16),
+                          ),
+                          backgroundColor: colorScheme.surface),
+                    ],
+                  ),
                 ),
                 const SizedBox(height: 12),
-                const Text(
-                  'People you may know',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 18),
+                  child: Text(
+                    'People you may know',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                  ),
                 ),
                 const SizedBox(height: 12),
                 ListView.builder(
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
-                  padding: const EdgeInsets.symmetric(vertical: 4),
+                  // padding: const EdgeInsets.symmetric(vertical: 4),
                   itemBuilder: (context, index) {
                     return const Padding(
                       padding: EdgeInsets.only(bottom: 24),

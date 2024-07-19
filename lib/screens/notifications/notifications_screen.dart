@@ -55,7 +55,7 @@ class NotificationsScreen extends StatelessWidget {
               physics: const NeverScrollableScrollPhysics(),
               itemCount: 3,
               itemBuilder: (context, index) => const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 18, vertical: 8),
+                padding: EdgeInsets.symmetric(vertical: 8),
                 child: FriendTile(),
               ),
             ),

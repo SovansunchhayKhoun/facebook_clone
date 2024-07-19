@@ -12,59 +12,62 @@ class FriendTile extends StatelessWidget {
   Widget build(BuildContext context) {
     ColorScheme colorScheme = Theme.of(context).colorScheme;
 
-    return Row(
-      children: [
-        Avatar(
-          img: profileImg,
-          size: 95,
-        ),
-        const SizedBox(width: 16),
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Text(
-                'User 101',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
-              ),
-              const SizedBox(height: 4),
-              Row(
-                children: [
-                  Expanded(
-                    child: MyTextButton(
-                      text: const Text(
-                        'Add friend',
-                        style: TextStyle(
-                            fontSize: 14,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold),
-                      ),
-                      // color: colorScheme.primary,
-                      backgroundColor: colorScheme.primary,
-                      borderRadius: 8,
-                    ),
-                  ),
-                  const SizedBox(width: 8),
-                  Expanded(
-                    child: MyTextButton(
-                      text: Text(
-                        'Remove',
-                        style: TextStyle(
-                            fontSize: 14,
-                            color: colorScheme.inversePrimary,
-                            fontWeight: FontWeight.bold),
-                      ),
-                      // color: colorScheme.surface,
-                      backgroundColor: colorScheme.surface,
-                      borderRadius: 8,
-                    ),
-                  )
-                ],
-              )
-            ],
+    return ListTile(
+      onTap: () {},
+      title: Row(
+        children: [
+          Avatar(
+            img: profileImg,
+            size: 95,
           ),
-        )
-      ],
+          const SizedBox(width: 16),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  'User 101',
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                ),
+                const SizedBox(height: 4),
+                Row(
+                  children: [
+                    Expanded(
+                      child: MyTextButton(
+                        text: const Text(
+                          'Add friend',
+                          style: TextStyle(
+                              fontSize: 14,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        // color: colorScheme.primary,
+                        backgroundColor: colorScheme.primary,
+                        borderRadius: 8,
+                      ),
+                    ),
+                    const SizedBox(width: 8),
+                    Expanded(
+                      child: MyTextButton(
+                        text: Text(
+                          'Remove',
+                          style: TextStyle(
+                              fontSize: 14,
+                              color: colorScheme.inversePrimary,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        // color: colorScheme.surface,
+                        backgroundColor: colorScheme.surface,
+                        borderRadius: 8,
+                      ),
+                    )
+                  ],
+                )
+              ],
+            ),
+          )
+        ],
+      ),
     );
   }
 }
