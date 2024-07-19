@@ -131,7 +131,9 @@ class _CreateListingScreenState extends State<CreateListingScreen> {
                   options: _categoryOptions,
                   selectedCategory: selectedCategory,
                   onChanged: (String? value) {
-                    selectedCategory = value;
+                    setState(() {
+                      selectedCategory = value;
+                    });
                   }),
               const SizedBox(height: 16),
               Text('Condition',

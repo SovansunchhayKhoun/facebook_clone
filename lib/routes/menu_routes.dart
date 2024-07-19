@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project/screens/dark_mode/dark_mode_screen.dart';
+import 'package:project/screens/dev_screen/dev_screen.dart';
 import 'package:project/screens/friends/friends_screen.dart';
 import 'package:project/screens/profile/profile_screen.dart';
 
@@ -22,6 +23,7 @@ class MenuRoutes {
     SettingTile(
       title: 'Friends',
     ),
+    SettingTile(title: 'About us')
   ];
 
   static final List<Map<int, Widget>> menuScreens = [
@@ -34,5 +36,8 @@ class MenuRoutes {
     {
       2: const FriendsScreen(),
     },
+    {
+      3: const DevScreen(),
+    }
   ];
 }
