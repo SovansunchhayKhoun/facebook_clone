@@ -68,6 +68,64 @@ class PhotoScreen extends StatelessWidget {
 
   Widget _buildPhotoGallery(BuildContext context) {
     TextTheme textTheme = Theme.of(context).textTheme;
+    List<StaggeredGridTile> staggeredTiles = [
+      StaggeredGridTile.count(
+        crossAxisCellCount: 2,
+        mainAxisCellCount: 2,
+        child: Image.network(
+          ImageSource.photo_2,
+          fit: BoxFit.cover,
+        ),
+      ),
+      StaggeredGridTile.count(
+        crossAxisCellCount: 2,
+        mainAxisCellCount: 1,
+        child: Image.network(
+          ImageSource.photo_2,
+          fit: BoxFit.cover,
+        ),
+      ),
+      StaggeredGridTile.count(
+        crossAxisCellCount: 1,
+        mainAxisCellCount: 1,
+        child: Image.network(
+          ImageSource.photo_2,
+          fit: BoxFit.cover,
+        ),
+      ),
+      StaggeredGridTile.count(
+        crossAxisCellCount: 1,
+        mainAxisCellCount: 1,
+        child: Image.network(
+          ImageSource.photo_2,
+          fit: BoxFit.cover,
+        ),
+      ),
+      StaggeredGridTile.count(
+        crossAxisCellCount: 4,
+        mainAxisCellCount: 3,
+        child: Image.network(
+          ImageSource.photo_2,
+          fit: BoxFit.cover,
+        ),
+      ),
+      StaggeredGridTile.count(
+        crossAxisCellCount: 2,
+        mainAxisCellCount: 2,
+        child: Image.network(
+          ImageSource.photo_2,
+          fit: BoxFit.cover,
+        ),
+      ),
+      StaggeredGridTile.count(
+        crossAxisCellCount: 2,
+        mainAxisCellCount: 2,
+        child: Image.network(
+          ImageSource.photo_2,
+          fit: BoxFit.cover,
+        ),
+      ),
+    ];
     return Padding(
       padding: const EdgeInsets.all(
         AppSize.paddingMd,
@@ -88,48 +146,7 @@ class PhotoScreen extends StatelessWidget {
             crossAxisCount: 4,
             mainAxisSpacing: 4,
             crossAxisSpacing: 4,
-            children: [
-              StaggeredGridTile.count(
-                crossAxisCellCount: 2,
-                mainAxisCellCount: 2,
-                child: Image.network(
-                  ImageSource.photo_2,
-                  fit: BoxFit.cover,
-                ),
-              ),
-              StaggeredGridTile.count(
-                crossAxisCellCount: 2,
-                mainAxisCellCount: 1,
-                child: Image.network(
-                  ImageSource.photo_2,
-                  fit: BoxFit.cover,
-                ),
-              ),
-              StaggeredGridTile.count(
-                crossAxisCellCount: 1,
-                mainAxisCellCount: 1,
-                child: Image.network(
-                  ImageSource.photo_2,
-                  fit: BoxFit.cover,
-                ),
-              ),
-              StaggeredGridTile.count(
-                crossAxisCellCount: 1,
-                mainAxisCellCount: 1,
-                child: Image.network(
-                  ImageSource.photo_2,
-                  fit: BoxFit.cover,
-                ),
-              ),
-              StaggeredGridTile.count(
-                crossAxisCellCount: 4,
-                mainAxisCellCount: 2,
-                child: Image.network(
-                  ImageSource.photo_2,
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ],
+            children: staggeredTiles,
           ),
         ],
       ),
