@@ -39,7 +39,7 @@ class _SignInScreenState extends State<SignInScreen> {
     bool obscureText = false,
   }) {
     return TextField(
-      style: const TextStyle(color: Colors.black),
+      style: const TextStyle(color: Colors.white),
       obscureText: obscureText,
       decoration: InputDecoration(
         hintStyle: const TextStyle(color: Colors.grey),
@@ -48,7 +48,7 @@ class _SignInScreenState extends State<SignInScreen> {
           borderRadius: BorderRadius.circular(8.0),
         ),
         filled: true,
-        fillColor: Colors.grey[200],
+        fillColor: Colors.grey[1],
       ),
     );
   }
@@ -79,7 +79,7 @@ class _SignInScreenState extends State<SignInScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.black,
       body: Center(
         child: Padding(
           padding: const EdgeInsets.only(

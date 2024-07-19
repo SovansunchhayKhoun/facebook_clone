@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project/screens/video/video_player.dart';
+import 'package:project/widgets/action_buttons.dart';
 
 class VideoScreen extends StatefulWidget {
   const VideoScreen({super.key});
@@ -9,7 +10,8 @@ class VideoScreen extends StatefulWidget {
   _VideoScreenState createState() => _VideoScreenState();
 }
 
-class _VideoScreenState extends State<VideoScreen> with SingleTickerProviderStateMixin {
+class _VideoScreenState extends State<VideoScreen>
+    with SingleTickerProviderStateMixin {
   late TabController _tabController;
 
   @override
@@ -26,79 +28,88 @@ class _VideoScreenState extends State<VideoScreen> with SingleTickerProviderStat
 
   @override
   Widget build(BuildContext context) {
+    ColorScheme colorScheme = Theme.of(context).colorScheme;
     return Scaffold(
-      appBar: AppBar(
-        bottom: TabBar(
-          controller: _tabController,
-          tabs: const [
-            Tab(text: 'For you'),
-            Tab(text: 'Live'),
-            Tab(text: 'Following'),
-          ],
-        ),
-      ),
-      body: TabBarView(
-        controller: _tabController,
+      body: Column(
         children: [
-          buildVideoPage(),
+          Container(
+            color: colorScheme.onBackground,
+            child: TabBar(
+              controller: _tabController,
+              tabs: const [
+                Tab(text: 'For you'),
+                Tab(text: 'Live'),
+                Tab(text: 'Following'),
+              ],
+              labelColor: Colors.blue,
+              unselectedLabelColor: Colors.white,
+              indicatorColor: Colors.blue,
+              indicatorWeight: 3.0,
+            ),
+          ),
+          Expanded(
+            child: TabBarView(
+              controller: _tabController,
+              children: [
+                buildVideoPage(
+                    context,
+                    'Rattanakpanha Kong',
+                    'https://newprofilepic.photo-cdn.net//assets/images/article/profile.jpg?90af0c8',
+                    'Jul 11',
+                    'Peace Mind',
+                    'Lz-U9N6R-uw'),
+                buildVideoPage(
+                    context,
+                    'Sovansunchhay Khoun',
+                    'https://images.unsplash.com/photo-1517841905240-472988babdf9',
+                    'Live now',
+                    'Let\'s study with me !',
+                    'GEKLmXNUFaE'),
+                // const Center(child: Text('Live Content')),
+                const Center(child: Text('Following Content')),
+              ],
+            ),
+          ),
         ],
       ),
     );
   }
 
-  Widget buildVideoPage() {
+  Widget buildVideoPage(context, String user, String profileUrl, String time,
+      String caption, String videoId) {
+    ColorScheme colorScheme = Theme.of(context).colorScheme;
+
     return SingleChildScrollView(
-      child: Column(
-        children: [
-          ListTile(
-            leading: const CircleAvatar(
-              backgroundImage: NetworkImage(
-                  'https://newprofilepic.photo-cdn.net//assets/images/article/profile.jpg?90af0c8'),
-            ),
-            title: const Text('Rattanakpanha Kong'),
-            subtitle: const Text('Jul 11'),
-            trailing: IconButton(
-              icon: const Icon(Icons.more_vert),
-              onPressed: () {
-                //
-              },
-            ),
-          ),
-          const Padding(
-            padding: EdgeInsets.all(8.0),
-            child: Align(
-              alignment: Alignment.centerLeft,
-              child: Text('Be careful on wet floors'),
-            ),
-          ),
-          const VideoPlayer(videoId: 'Lz-U9N6R-uw'),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              IconButton(
-                icon: const Icon(Icons.thumb_up),
+      child: Container(
+        color: colorScheme.onBackground,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            ListTile(
+              leading: CircleAvatar(
+                backgroundImage: NetworkImage(profileUrl),
+              ),
+              title: Text(user),
+              subtitle: Text(time),
+              trailing: IconButton(
+                icon: const Icon(Icons.more_vert),
                 onPressed: () {
-                  // Handle like
+                  //
                 },
               ),
-              IconButton(
-                icon: const Icon(Icons.comment),
-                onPressed: () {
-                  // Handle comment
-                },
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(caption),
               ),
-              IconButton(
-                icon: const Icon(Icons.share),
-                onPressed: () {
-                  // Handle share
-                },
-              ),
-            ],
-          ),
-        ],
+            ),
+            VideoPlayer(videoId: videoId),
+            ActionButtons(colorScheme: colorScheme)
+          ],
+        ),
       ),
     );
   }
 }
-
-

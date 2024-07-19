@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:lucide_icons/lucide_icons.dart';
 import 'package:project/models/post.dart';
+import 'package:project/widgets/action_buttons.dart';
 
 Widget buildPostItem(Post post, ColorScheme colorScheme) {
   return Container(
     color: colorScheme.surface,
     margin: const EdgeInsets.only(top: 5),
-    padding: const EdgeInsets.all(10),
+    padding: const EdgeInsets.only(top: 15, left: 10, right: 10),
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -42,35 +42,7 @@ Widget buildPostItem(Post post, ColorScheme colorScheme) {
         ),
         const SizedBox(height: 8),
         Image.network(post.postImageUrl),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            TextButton.icon(
-                // ignore: avoid_print
-                onPressed: () => print('Like button pressed'),
-                icon: Icon(
-                  LucideIcons.thumbsUp,
-                  size: 16,
-                  color: colorScheme.inversePrimary,
-                ),
-                label: Text('Like',
-                    style: TextStyle(color: colorScheme.inversePrimary))),
-            TextButton.icon(
-                // ignore: avoid_print
-                onPressed: () => print('Comment button pressed'),
-                icon: Icon(LucideIcons.messageCircle,
-                    size: 16, color: colorScheme.inversePrimary),
-                label: Text('Comment',
-                    style: TextStyle(color: colorScheme.inversePrimary))),
-            TextButton.icon(
-                // ignore: avoid_print
-                onPressed: () => print('Share button pressed'),
-                icon: Icon(LucideIcons.forward,
-                    size: 16, color: colorScheme.inversePrimary),
-                label: Text('Share',
-                    style: TextStyle(color: colorScheme.inversePrimary))),
-          ],
-        )
+        ActionButtons(colorScheme: colorScheme)
       ],
     ),
   );
