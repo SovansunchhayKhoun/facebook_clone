@@ -10,7 +10,7 @@ class FeedsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String ownProfile =
-        'https://newprofilepic.photo-cdn.net//assets/images/article/profile.jpg?90af0c8';
+        'lib/assets/images/panha.png';
 
     ColorScheme colorScheme = Theme.of(context).colorScheme;
 
@@ -22,7 +22,6 @@ class FeedsScreen extends StatelessWidget {
           buildInputSection(ownProfile, colorScheme),
           buildStorySection(colorScheme),
           buildPostFeeds(_scaffoldKey, colorScheme),
-          // buildPostFeeds(_scaffoldKey, colorScheme)
         ],
       ),
     ));

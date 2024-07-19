@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 Widget buildInputSection(String ownProfile, ColorScheme colorScheme) {
   return ListTile(
     leading: CircleAvatar(
-      backgroundImage: NetworkImage(ownProfile),
+      backgroundImage: AssetImage(ownProfile),
     ),
     title: TextField(
       decoration: InputDecoration(

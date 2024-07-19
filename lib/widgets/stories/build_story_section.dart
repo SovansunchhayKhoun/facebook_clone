@@ -3,13 +3,15 @@ import 'package:project/widgets/stories/build_story_item.dart';
 
 Widget buildStorySection(ColorScheme colorScheme) {
   String addStoryImageUrl =
-      'https://newprofilepic.photo-cdn.net//assets/images/article/profile.jpg?90af0c8';
+      'lib/assets/images/panha.png';
   String storyImageUrl =
-      'https://www.cktravels.com/wp-content/uploads/2023/08/seoul-guide-19.jpg';
+      'lib/assets/images/wat_phnom.jpg';
+  String storyImageUrl1 =
+      'lib/assets/images/palace.jpg';
   String storyProfileUrl1 =
-      'https://images.unsplash.com/photo-1517841905240-472988babdf9';
+      'lib/assets/images/chhay.png';
   String storyProfileUrl2 =
-      'https://images.unsplash.com/photo-1520072959219-c595dc870360';
+      'lib/assets/images/pong.png';
 
   return Container(
     padding: const EdgeInsets.only(top: 15, bottom: 15),
@@ -19,11 +21,11 @@ Widget buildStorySection(ColorScheme colorScheme) {
         child: ListView(
           scrollDirection: Axis.horizontal,
           children: [
-            buildStoryItem('Create story', addStoryImageUrl, true),
+            buildStoryItem('', addStoryImageUrl, true),
             buildStoryItem(
                 'Sovansunchhay Khoun', storyImageUrl, false, storyProfileUrl1),
             buildStoryItem(
-                'Ormreth Rethtihpong Em', storyImageUrl, false, storyProfileUrl2),
+                'Ormreth Rethtihpong Em', storyImageUrl1, false, storyProfileUrl2),
           ],
         ),
       ));

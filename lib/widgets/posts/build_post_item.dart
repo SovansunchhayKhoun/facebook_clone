@@ -16,7 +16,7 @@ Widget buildPostItem(Post post, ColorScheme colorScheme) {
           children: [
             Row(
               children: [
-                CircleAvatar(backgroundImage: NetworkImage(post.ownProfile)),
+                CircleAvatar(backgroundImage: AssetImage(post.ownProfile)),
                 const SizedBox(width: 12),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -41,7 +41,7 @@ Widget buildPostItem(Post post, ColorScheme colorScheme) {
           child: Text(post.caption),
         ),
         const SizedBox(height: 8),
-        Image.network(post.postImageUrl),
+        Image.asset(post.postImageUrl),
         ActionButtons(colorScheme: colorScheme)
       ],
     ),

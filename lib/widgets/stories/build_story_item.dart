@@ -14,7 +14,7 @@ Widget buildStoryItem(String name, String storyImageUrl, bool isAddStory,
           borderRadius: BorderRadius.circular(12),
           child: Stack(
             children: [
-              Image.network(
+              Image.asset(
                 storyImageUrl,
                 fit: BoxFit.cover,
                 width: double.infinity,
@@ -48,7 +48,7 @@ Widget buildStoryItem(String name, String storyImageUrl, bool isAddStory,
               backgroundColor: Colors.white,
               child: CircleAvatar(
                 radius: 18,
-                backgroundImage: NetworkImage(profileUrl),
+                backgroundImage: AssetImage(profileUrl),
               ),
             ),
           ),

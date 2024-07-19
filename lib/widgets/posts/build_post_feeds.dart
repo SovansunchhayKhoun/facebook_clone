@@ -7,28 +7,28 @@ Widget buildPostFeeds(scaffoldKey, ColorScheme colorScheme) {
     username: 'Rattanakpanha Kong',
     timeAgo: '8h',
     ownProfile:
-        'https://newprofilepic.photo-cdn.net//assets/images/article/profile.jpg?90af0c8',
+        'lib/assets/images/panha.png',
     caption: 'A beautiful day to read and enjoy life!',
     postImageUrl:
-        'https://media.tacdn.com/media/attractions-splice-spp-674x446/06/6c/56/f8.jpg',
+        'lib/assets/images/phnom_penh.jpg',
   );
 
   const post1 = Post(
     username: 'Sovansunchhay Khoun',
     timeAgo: '12h',
-    ownProfile: 'https://images.unsplash.com/photo-1517841905240-472988babdf9',
+    ownProfile: 'lib/assets/images/chhay.png',
     caption: 'A beautiful day to read and enjoy life!',
     postImageUrl:
-        'https://image-tc.galaxy.tf/wijpeg-6lp8rr31vfvdy41ubtpqdgihd/wat-phnom-pagoda.jpg',
+        'lib/assets/images/wat_phnom.jpg',
   );
 
   const post2 = Post(
     username: 'Ormreth Rethtihpong Em',
     timeAgo: '3h',
-    ownProfile: 'https://images.unsplash.com/photo-1520072959219-c595dc870360',
+    ownProfile: 'lib/assets/images/pong.png',
     caption: 'A beautiful day to read and enjoy life!',
     postImageUrl:
-        'https://ucarecdn.com/77d53c3e-7964-48a1-9ce3-0085720b56d2/-/crop/4043x2122/0,265/-/resize/1200x630/-/resize/x300/',
+        'lib/assets/images/palace.jpg',
   );
 
   return Column(
