@@ -13,7 +13,7 @@ class SignInScreen extends StatefulWidget {
 class _SignInScreenState extends State<SignInScreen> {
   bool _isLoading = false;
 
-  void _handleLogin() async {
+  Future<void> _handleLogin() async {
     setState(() {
       _isLoading = true;
     });
@@ -21,15 +21,58 @@ class _SignInScreenState extends State<SignInScreen> {
     // Simulate a network call
     await Future.delayed(const Duration(seconds: 2));
 
+    if (!mounted) return;
+
     setState(() {
       _isLoading = false;
     });
 
     // Navigate to HomeScreen
     Navigator.pushReplacement(
-      // ignore: use_build_context_synchronously
       context,
       MaterialPageRoute(builder: (context) => const LayoutScreen()),
+    );
+  }
+
+  Widget _buildTextField({
+    required String hintText,
+    bool obscureText = false,
+  }) {
+    return TextField(
+      style: const TextStyle(color: Colors.black),
+      obscureText: obscureText,
+      decoration: InputDecoration(
+        hintStyle: const TextStyle(color: Colors.grey),
+        hintText: hintText,
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(8.0),
+        ),
+        filled: true,
+        fillColor: Colors.grey[200],
+      ),
+    );
+  }
+
+  Widget _buildElevatedButton({
+    required String text,
+    required VoidCallback? onPressed,
+    required Color color,
+  }) {
+    return ElevatedButton(
+      onPressed: onPressed,
+      style: ElevatedButton.styleFrom(
+        backgroundColor: color,
+        minimumSize: const Size(double.infinity, 50),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8.0),
+        ),
+      ),
+      child: _isLoading && color == Colors.blue
+          ? const CircularProgressIndicator(color: Colors.white)
+          : Text(
+              text,
+              style: const TextStyle(fontSize: 18, color: Colors.white),
+            ),
     );
   }
 
@@ -53,46 +96,18 @@ class _SignInScreenState extends State<SignInScreen> {
                 ),
               ),
               const SizedBox(height: 40),
-              TextField(
-                decoration: InputDecoration(
-                  hintStyle: const TextStyle(color: Colors.grey),
-                  hintText: 'Mobile number or email address',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8.0),
-                  ),
-                  filled: true,
-                  fillColor: Colors.grey[200],
-                ),
-              ),
+              _buildTextField(hintText: 'Mobile number or email address'),
               const SizedBox(height: 16),
-              TextField(
-                obscureText: true,
-                decoration: InputDecoration(
-                  hintStyle: const TextStyle(color: Colors.grey),
-                  hintText: 'Password',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8.0),
-                  ),
-                  filled: true,
-                  fillColor: Colors.grey[200],
-                ),
-              ),
+              _buildTextField(hintText: 'Password', obscureText: true),
               const SizedBox(height: 16),
-              ElevatedButton(
-                onPressed: _isLoading ? null : _handleLogin,
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blue,
-                  minimumSize: const Size(double.infinity, 50),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8.0),
-                  ),
-                ),
-                child: _isLoading
-                    ? const CircularProgressIndicator(color: Colors.blue)
-                    : const Text(
-                        'Log In',
-                        style: TextStyle(fontSize: 18, color: Colors.white),
-                      ),
+              _buildElevatedButton(
+                text: 'Log In',
+                onPressed: _isLoading
+                    ? null
+                    : () {
+                        _handleLogin();
+                      },
+                color: Colors.blue,
               ),
               const SizedBox(height: 16),
               TextButton(
@@ -123,24 +138,18 @@ class _SignInScreenState extends State<SignInScreen> {
                 ],
               ),
               const SizedBox(height: 16),
-              ElevatedButton(
+              _buildElevatedButton(
+                text: 'Create New Account',
                 onPressed: () {
-                  //
+                  // Handle create new account
                 },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.green,
-                  minimumSize: const Size(double.infinity, 50),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8.0),
-                  ),
-                ),
-                child: const Text(
-                  'Create New Account',
-                  style: TextStyle(fontSize: 18, color: Colors.white),
-                ),
+                color: Colors.green,
               ),
               const Spacer(),
-              const Text('About • Help • More'),
+              const Text(
+                'About • Help • More',
+                style: TextStyle(color: Colors.grey),
+              ),
               const SizedBox(height: 16),
               const Text(
                 'Meta © 2024',

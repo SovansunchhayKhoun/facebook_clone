@@ -1,4 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:project/widgets/forgot_password/footer_text.dart';
+import 'package:project/widgets/forgot_password/forgot_password_header.dart';
+import 'package:project/widgets/forgot_password/mobile_number_input.dart';
+// import 'forgot_password_header.dart'; // Import the relevant widget files
+// import 'mobile_number_input.dart';
+// import 'footer_text.dart';
 
 class ForgotPassword extends StatelessWidget {
   const ForgotPassword({super.key});
@@ -12,7 +18,6 @@ class ForgotPassword extends StatelessWidget {
           icon: const Icon(Icons.arrow_back),
           color: Colors.black,
           onPressed: () {
-            // Handle back button press
             Navigator.pop(context);
           },
         ),
@@ -25,42 +30,11 @@ class ForgotPassword extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              'Find your account',
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                color: Colors.black
-              ),
-            ),
-            const SizedBox(height: 8),
-            const Text(
-              'Enter your mobile number.',
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.black
-              ),
-            ),
+            const ForgotPasswordHeader(),
             const SizedBox(height: 16),
-            TextField(
-              decoration: InputDecoration(
-                hintText: 'Mobile number',
-                hintStyle: const TextStyle(color: Colors.grey),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8.0),
-                ),
-                filled: true,
-                fillColor: Colors.grey[200],
-              ),
-            ),
+            const MobileNumberInput(),
             const SizedBox(height: 8),
-            const Text(
-              'You may receive WhatsApp and SMS notifications from us for security and login purposes.',
-              style: TextStyle(
-                fontSize: 12,
-                color: Colors.grey,
-              ),
-            ),
+            const FooterText(),
             const SizedBox(height: 16),
             ElevatedButton(
               onPressed: () {
@@ -76,18 +50,6 @@ class ForgotPassword extends StatelessWidget {
               child: const Text(
                 'Continue',
                 style: TextStyle(fontSize: 18, color: Colors.white),
-              ),
-            ),
-            const SizedBox(height: 16),
-            Center(
-              child: TextButton(
-                onPressed: () {
-                  //
-                },
-                child: const Text(
-                  'Search by email instead',
-                  style: TextStyle(color: Colors.blue),
-                ),
               ),
             ),
           ],
