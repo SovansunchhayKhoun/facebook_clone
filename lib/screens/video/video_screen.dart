@@ -54,14 +54,14 @@ class _VideoScreenState extends State<VideoScreen>
                 buildVideoPage(
                     context,
                     'Rattanakpanha Kong',
-                    'https://newprofilepic.photo-cdn.net//assets/images/article/profile.jpg?90af0c8',
+                    'lib/assets/images/panha.png',
                     'Jul 11',
                     'Peace Mind',
                     'Lz-U9N6R-uw'),
                 buildVideoPage(
                     context,
                     'Sovansunchhay Khoun',
-                    'https://images.unsplash.com/photo-1517841905240-472988babdf9',
+                    'lib/assets/images/chhay.png',
                     'Live now',
                     'Let\'s study with me !',
                     'GEKLmXNUFaE'),
@@ -87,7 +87,7 @@ class _VideoScreenState extends State<VideoScreen>
           children: [
             ListTile(
               leading: CircleAvatar(
-                backgroundImage: NetworkImage(profileUrl),
+                backgroundImage: AssetImage(profileUrl),
               ),
               title: Text(user),
               subtitle: Text(time),
