@@ -13,7 +13,7 @@ class ForgotPasswordHeader extends StatelessWidget {
           style: TextStyle(
             fontSize: 24,
             fontWeight: FontWeight.bold,
-            color: Colors.black,
+            color: Colors.white,
           ),
         ),
         SizedBox(height: 8),
@@ -21,7 +21,7 @@ class ForgotPasswordHeader extends StatelessWidget {
           'Enter your mobile number.',
           style: TextStyle(
             fontSize: 16,
-            color: Colors.black,
+            color: Colors.grey,
           ),
         ),
       ],

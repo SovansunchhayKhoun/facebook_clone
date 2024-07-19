@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:project/widgets/forgot_password/footer_text.dart';
 import 'package:project/widgets/forgot_password/forgot_password_header.dart';
 import 'package:project/widgets/forgot_password/mobile_number_input.dart';
-// import 'forgot_password_header.dart'; // Import the relevant widget files
-// import 'mobile_number_input.dart';
-// import 'footer_text.dart';
 
 class ForgotPassword extends StatelessWidget {
   const ForgotPassword({super.key});
@@ -16,16 +13,16 @@ class ForgotPassword extends StatelessWidget {
         title: const Text(''),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
-          color: Colors.black,
+          color: Colors.white,
           onPressed: () {
             Navigator.pop(context);
           },
         ),
         elevation: 0,
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.black,
       ),
       body: Container(
-        color: Colors.white,
+        color: Colors.black,
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

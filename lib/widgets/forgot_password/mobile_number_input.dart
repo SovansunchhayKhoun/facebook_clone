@@ -8,12 +8,12 @@ class MobileNumberInput extends StatelessWidget {
     return TextField(
       decoration: InputDecoration(
         hintText: 'Mobile number',
-        hintStyle: const TextStyle(color: Colors.grey),
+        hintStyle: const TextStyle(color: Colors.white),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8.0),
         ),
         filled: true,
-        fillColor: Colors.grey[200],
+        fillColor: Colors.grey[1],
       ),
     );
   }
