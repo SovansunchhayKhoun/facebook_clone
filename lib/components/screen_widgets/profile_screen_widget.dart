@@ -5,6 +5,7 @@ import 'package:project/components/buttons/profile_button.dart';
 import 'package:project/components/cards/friend_card.dart';
 import 'package:project/screens/avatar.dart';
 import 'package:project/screens/profile/photo_screen.dart';
+import 'package:project/screens/profile/profile_detail_screen.dart';
 import 'package:project/theme/app_size.dart';
 import 'package:project/theme/text_theme.dart';
 
@@ -320,7 +321,12 @@ class ProfileScreenWidget {
           ),
         ),
         ListTile(
-          onTap: () {},
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => ProfileDetail()),
+            );
+          },
           title: Row(
             children: [
               const Icon(Icons.more_horiz),
@@ -356,7 +362,7 @@ class ProfileScreenWidget {
     TabController tabController,
   ) =>
       _buildTabBar(context, tabController);
-      
+
   Widget _buildTabBar(
     BuildContext context,
     TabController tabController,
